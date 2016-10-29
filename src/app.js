@@ -1,5 +1,3 @@
 (function () {
-    console.log('hello world');
-
-    vanillaComponents.list.render();
+    vanillaComponents.list.render(vanillaComponents.dom.getPlaceholder(document, '.vanillaComponents-list'));
 }());

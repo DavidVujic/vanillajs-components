@@ -1,9 +1,18 @@
 vanillaComponents.list = (function () {
     var templatePath = '/src/list/template.html';
-    var placeholders = document.querySelectorAll('.vanillaComponents-list');
 
-    function render() {
-        vanillaComponents.loader.renderTemplate(templatePath, placeholders);
+    function renderItems(container) {
+        var placeholder = vanillaComponents.dom.getPlaceholder(container, '.vanillaComponents-listItem');
+        vanillaComponents.listItem.render(placeholder);
+    }
+
+    function render(placeholder) {
+        vanillaComponents.loader.parseTemplate(templatePath, function (node) {
+            vanillaComponents.dom.render(node, placeholder, function () {
+                renderItems(node);
+            });
+
+        });
     }
 
     return {

@@ -19,18 +19,16 @@ vanillaComponents.loader = (function () {
         request.send();
     }
 
-    function renderTemplate(templatePath, placeholders) {
-        vanillaComponents.loader.get(templatePath, function (template) {
-            var i;
+    function parseTemplate(templatePath, callback) {
+        var container = document.createElement('div');
 
-            for (i = 0; i < placeholders.length; i += 1) {
-                placeholders[i].innerHTML = template;
-            }
+        vanillaComponents.loader.get(templatePath, function (template) {
+            container.innerHTML = template;
+            callback(container.children[0]);
         });
     }
-
     return {
         get: get,
-        renderTemplate: renderTemplate
+        parseTemplate: parseTemplate
     };
 }());
