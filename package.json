@@ -1,0 +1,22 @@
+{
+  "name": "vanillajs-components",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DavidVujic/vanillajs-components.git"
+  },
+  "author": "David Vujic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DavidVujic/vanillajs-components/issues"
+  },
+  "homepage": "https://github.com/DavidVujic/vanillajs-components#readme",
+  "devDependencies": {
+    "live-server": "^1.1.0"
+  }
+}
