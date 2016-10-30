@@ -1,7 +1,8 @@
 vanillaComponents.listItem = (function (loader) {
 
-    function create(done) {
+    function create(data, done) {
         loader.getTemplate('/src/listItem/template.html', function (node) {
+            node.textContent = data;
             done(node);
         });
     }

@@ -1,8 +1,8 @@
 vanillaComponents.list = (function (loader, listItem) {
 
-    function create(done) {
+    function create(data, done) {
         loader.getTemplate('/src/list/template.html', function (list) {
-            listItem.create(function (item) {
+            listItem.create(data[0], function (item) {
                 list.appendChild(item);
 
                 done(list);
