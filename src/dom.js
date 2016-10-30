@@ -3,12 +3,6 @@ vanillaComponents.dom = (function () {
         return container.querySelector(selector);
     }
 
-    function append(child, parent) {
-        parent.appendChild(child);
-
-        return parent;
-    }
-
     function render(parent, child, done) {
         parent.appendChild(child);
 
@@ -19,7 +13,6 @@ vanillaComponents.dom = (function () {
 
     return {
         getContainer: getContainer,
-        append: append,
         render: render
     };
 }());
