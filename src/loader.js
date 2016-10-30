@@ -1,4 +1,6 @@
 vanillaComponents.loader = (function () {
+    var savedTemplates = {};
+
     function get(url, onSuccess, onError) {
         var request = new XMLHttpRequest();
 
@@ -19,16 +21,30 @@ vanillaComponents.loader = (function () {
         request.send();
     }
 
-    function getTemplate(templatePath, callback) {
+    function saveTemplate(path, template) {
         var container = document.createElement('div');
+        container.innerHTML = template;
+        savedTemplates[path] = container.children[0];
+    }
 
-        get(templatePath, function (template) {
-            container.innerHTML = template;
-            callback(container.children[0]);
+    function getSavedTemplate(key) {
+        return savedTemplates[key].cloneNode(true);
+    }
+
+    function getTemplate(path, callback) {
+
+        if (savedTemplates.hasOwnProperty(path)) {
+            callback(getSavedTemplate(path));
+
+            return;
+        }
+
+        get(path, function (template) {
+            saveTemplate(path, template);
+            callback(getSavedTemplate(path));
         });
     }
     return {
-        get: get,
         getTemplate: getTemplate
     };
 }());
