@@ -1,4 +1,4 @@
-vanillaComponents.loader = (function () {
+vanillaComponents.templateLoader = (function () {
     var savedTemplates = {};
 
     function get(url, onSuccess, onError) {

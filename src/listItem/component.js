@@ -10,4 +10,5 @@ vanillaComponents.listItem = (function (loader) {
     return {
         create: create
     };
-}(vanillaComponents.loader));
+
+}(vanillaComponents.templateLoader));
