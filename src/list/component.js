@@ -1,25 +1,13 @@
-vanillaComponents.list = (function (loader, dom) {
-    var parent;
-
-    function renderChildren(node) {
-        var container = dom.getContainer(node, '.vanillaComponents-listItem');
-        vanillaComponents.listItem.render(container);
-    }
-
-    function renderNode(node) {
-        dom.render(node, parent, renderChildren);
-    }
-
-    function parse(next) {
-        loader.parseTemplate('/src/list/template.html', next);
-    }
-
-    function render(parentElement) {
-        parent = parentElement;
-        parse(renderNode);
+vanillaComponents.list = (function (loader, listItem) {
+    function render(container, add) {
+        loader.getTemplate('/src/list/template.html', function (node) {
+            add(container, node, function () {
+                listItem.render(node, add);
+            });
+        });
     }
 
     return {
         render: render
     };
-}(vanillaComponents.loader, vanillaComponents.dom));
+}(vanillaComponents.loader, vanillaComponents.listItem));

@@ -19,16 +19,16 @@ vanillaComponents.loader = (function () {
         request.send();
     }
 
-    function parseTemplate(templatePath, callback) {
+    function getTemplate(templatePath, callback) {
         var container = document.createElement('div');
 
-        vanillaComponents.loader.get(templatePath, function (template) {
+        get(templatePath, function (template) {
             container.innerHTML = template;
             callback(container.children[0]);
         });
     }
     return {
         get: get,
-        parseTemplate: parseTemplate
+        getTemplate: getTemplate
     };
 }());

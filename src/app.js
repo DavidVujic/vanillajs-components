@@ -1,3 +1,6 @@
-(function(dom, list) {
-    list.render(dom.getContainer(document, '.vanillaComponents-list'));
+(function (dom, list) {
+    var container = dom.getContainer(document, '.vanillaComponents-list');
+
+    list.render(container, dom.render);
+
 }(vanillaComponents.dom, vanillaComponents.list));
