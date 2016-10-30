@@ -1,13 +1,16 @@
 vanillaComponents.list = (function (loader, listItem) {
-    function render(container, add) {
-        loader.getTemplate('/src/list/template.html', function (node) {
-            add(container, node, function () {
-                listItem.render(node, add);
+
+    function create(done) {
+        loader.getTemplate('/src/list/template.html', function (list) {
+            listItem.create(function (item) {
+                list.appendChild(item);
+
+                done(list);
             });
         });
     }
 
     return {
-        render: render
+        create: create
     };
 }(vanillaComponents.loader, vanillaComponents.listItem));

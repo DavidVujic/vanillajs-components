@@ -1,6 +1,6 @@
 vanillaComponents.dom = (function () {
 
-    function render(parent, child, done) {
+    function render(child, parent, done) {
         parent.appendChild(child);
 
         if (done) {

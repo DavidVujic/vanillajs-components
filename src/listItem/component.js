@@ -1,11 +1,12 @@
 vanillaComponents.listItem = (function (loader) {
-    function render(parent, add) {
+
+    function create(done) {
         loader.getTemplate('/src/listItem/template.html', function (node) {
-            add(parent, node);
+            done(node);
         });
     }
 
     return {
-        render: render
+        create: create
     };
 }(vanillaComponents.loader));

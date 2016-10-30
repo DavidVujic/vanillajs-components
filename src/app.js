@@ -1,6 +1,8 @@
 (function (dom, list) {
     var container = document.querySelector('.vanillaComponents-list');
 
-    list.render(container, dom.render);
+    list.create(function (list) {
+      dom.render(list, container);
+    });
 
 }(vanillaComponents.dom, vanillaComponents.list));
