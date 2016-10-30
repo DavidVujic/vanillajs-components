@@ -1,21 +1,25 @@
-vanillaComponents.list = (function () {
-    var templatePath = '/src/list/template.html';
+vanillaComponents.list = (function (loader, dom) {
+    var parent;
 
-    function renderItems(container) {
-        var placeholder = vanillaComponents.dom.getPlaceholder(container, '.vanillaComponents-listItem');
-        vanillaComponents.listItem.render(placeholder);
+    function renderChildren(node) {
+        var container = dom.getContainer(node, '.vanillaComponents-listItem');
+        vanillaComponents.listItem.render(container);
     }
 
-    function render(placeholder) {
-        vanillaComponents.loader.parseTemplate(templatePath, function (node) {
-            vanillaComponents.dom.render(node, placeholder, function () {
-                renderItems(node);
-            });
+    function renderNode(node) {
+        dom.render(node, parent, renderChildren);
+    }
 
-        });
+    function parse(next) {
+        loader.parseTemplate('/src/list/template.html', next);
+    }
+
+    function render(parentElement) {
+        parent = parentElement;
+        parse(renderNode);
     }
 
     return {
         render: render
-    }
-}());
+    };
+}(vanillaComponents.loader, vanillaComponents.dom));

@@ -1,3 +1,3 @@
-(function () {
-    vanillaComponents.list.render(vanillaComponents.dom.getPlaceholder(document, '.vanillaComponents-list'));
-}());
+(function(dom, list) {
+    list.render(dom.getContainer(document, '.vanillaComponents-list'));
+}(vanillaComponents.dom, vanillaComponents.list));

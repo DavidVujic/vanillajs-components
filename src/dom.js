@@ -1,5 +1,5 @@
 vanillaComponents.dom = (function () {
-    function getPlaceholder(container, selector) {
+    function getContainer(container, selector) {
         return container.querySelector(selector);
     }
 
@@ -7,12 +7,12 @@ vanillaComponents.dom = (function () {
         parent.appendChild(child);
 
         if (done) {
-            done();
+            done(child);
         }
     }
 
     return {
-        getPlaceholder: getPlaceholder,
+        getContainer: getContainer,
         render: render
     };
 }());

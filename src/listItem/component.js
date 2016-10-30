@@ -1,17 +1,20 @@
-vanillaComponents.listItem = (function () {
-    var templatePath = '/src/listItem/template.html';
+vanillaComponents.listItem = (function (loader, dom) {
+    var parent;
 
-    function renderContent(node, placeholder) {
-        vanillaComponents.dom.render(node, placeholder);
+    function renderNode(node) {
+        dom.render(node, parent);
     }
 
-    function render(placeholder) {
-        vanillaComponents.loader.parseTemplate(templatePath, function (node) {
-            renderContent(node, placeholder);
-        });
+    function parse(next) {
+        loader.parseTemplate('/src/listItem/template.html', next);
+    }
+
+    function render(parentElement) {
+        parent = parentElement;
+        parse(renderNode);
     }
 
     return {
         render: render
-    }
-}());
+    };
+}(vanillaComponents.loader, vanillaComponents.dom));
