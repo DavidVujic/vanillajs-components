@@ -1,7 +1,7 @@
 (function (dom, list) {
     var container = document.querySelector('.vanillaComponents-list');
 
-    list.create(['Hello component!'], function (list) {
+    list.create(['You', 'might', 'not', 'need', 'a', 'JavaScript', 'framework'], function (list) {
       dom.render(list, container);
     });
 

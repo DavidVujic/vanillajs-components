@@ -1,12 +1,23 @@
 vanillaComponents.list = (function (loader, listItem) {
 
+    function each(data, index, list, done) {
+        listItem.create(data[index], function (item) {
+            list.appendChild(item);
+
+            index++;
+
+            if (data.length <= index) {
+                done(list);
+                return;
+            }
+
+            each(data, index, list, done);
+        });
+    }
+
     function create(data, done) {
         loader.getTemplate('/src/list/template.html', function (list) {
-            listItem.create(data[0], function (item) {
-                list.appendChild(item);
-
-                done(list);
-            });
+            each(data, 0, list, done);
         });
     }
 
