@@ -1,7 +1,7 @@
-vanillaComponents.templateLoader = (function () {
+var templateLoader = (function () {
     var savedTemplates = {};
 
-    function get(url, onSuccess, onError) {
+    function httpGet(url, onSuccess, onError) {
         var request = new XMLHttpRequest();
 
         request.open('GET', url, true);
@@ -39,12 +39,12 @@ vanillaComponents.templateLoader = (function () {
             return;
         }
 
-        get(path, function (template) {
+        httpGet(path, function (template) {
             saveTemplate(path, template);
             callback(getSavedTemplate(path));
         });
     }
     return {
-        getTemplate: getTemplate
+        get: getTemplate
     };
 }());

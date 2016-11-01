@@ -1,4 +1,4 @@
-vanillaComponents.componentLoader = (function () {
+var componentLoader = (function () {
 
     function each(component, data, index, container, done) {
         component.create(data[index], function (item) {

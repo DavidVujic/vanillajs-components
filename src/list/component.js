@@ -1,8 +1,8 @@
-vanillaComponents.list = (function (templateLoader, componentLoader, listItem) {
+vanillaComponents.list = (function (templates, components, listItem) {
 
     function create(data, done) {
-        templateLoader.getTemplate('/src/list/template.html', function (list) {
-            componentLoader.each(listItem, data, 0, list, done);
+        templates.get('/src/list/template.html', function (list) {
+            components.each(listItem, data, 0, list, done);
         });
     }
 
@@ -10,4 +10,4 @@ vanillaComponents.list = (function (templateLoader, componentLoader, listItem) {
         create: create
     };
 
-}(vanillaComponents.templateLoader, vanillaComponents.componentLoader, vanillaComponents.listItem));
+}(templateLoader, componentLoader, vanillaComponents.listItem));
