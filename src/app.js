@@ -1,10 +1,8 @@
-(function (list) {
+(function (components, list) {
 
-    var container = document.querySelector('.vanillaComponents-list');
+    var container = document.querySelector('.vanilla-list');
     var data = ['You', 'might', '(not)', 'need', 'a', 'JavaScript', 'framework'];
 
-    list.create(data, function (list) {
-        container.appendChild(list);
-    });
+    components.add(list, data, container);
 
-}(vanillaComponents.list));
+}(components, vanilla.list));

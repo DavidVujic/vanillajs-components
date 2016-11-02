@@ -1,4 +1,4 @@
-var templateLoader = (function () {
+var templates = (function () {
     var savedTemplates = {};
 
     function httpGet(url, onSuccess, onError) {

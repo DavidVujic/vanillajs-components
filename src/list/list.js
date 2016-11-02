@@ -1,4 +1,4 @@
-vanillaComponents.list = (function (templates, components, listItem) {
+vanilla.list = (function (templates, components, listItem) {
 
     function create(data, done) {
         templates.get('/src/list/template.html', function (list) {
@@ -10,4 +10,4 @@ vanillaComponents.list = (function (templates, components, listItem) {
         create: create
     };
 
-}(templateLoader, componentLoader, vanillaComponents.listItem));
+}(templates, components, vanilla.listItem));
