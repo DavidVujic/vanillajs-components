@@ -3,7 +3,7 @@ var templates = (function () {
 
     function httpGet(path, onSuccess, onError) {
         var request = new XMLHttpRequest();
-        var url = '//' + window.location.host + path;
+        var url = window.location.protocol + '//' + window.location.host + path;
 
         request.open('GET', url, true);
 
