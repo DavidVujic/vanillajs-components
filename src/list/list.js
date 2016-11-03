@@ -5,7 +5,7 @@ vanilla.list = (function (templates, components, events, listItem) {
         templates.get('/src/list/template.html', function (list) {
 
             list.addEventListener('click', function (e) {
-                events.trigger(e, actions, e.type);
+                events.trigger(e, actions);
             });
 
             components.each(listItem, data, 0, list, done);

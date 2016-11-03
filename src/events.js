@@ -1,14 +1,8 @@
 var events = (function () {
-    function on(type, func) {
-        actions.push({
-            'type': type,
-            'func': func
-        });
-    }
 
-    function trigger(target, actions, type) {
+    function trigger(target, actions) {
         function filterByType(action) {
-            return action.type === type;
+            return action.type === target.type;
         }
 
         target.preventDefault();
@@ -19,7 +13,6 @@ var events = (function () {
     }
 
     return {
-        on: on,
         trigger: trigger
     };
 
