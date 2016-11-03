@@ -8,13 +8,16 @@ var components = (function () {
         })
     }
 
-    function each(component, data, index, container, callback) {
-        add(component, data[index], container, function (added) {
-            index++;
+    function each(obj) {
+        var isDone;
+        obj.index = obj.index || 0;
 
-            var isDone = data.length <= index;
+        add(obj.component, obj.data[obj.index], obj.container, function (added) {
+            obj.index++;
 
-            callback({
+            isDone = obj.data.length <= obj.index;
+
+            obj.callback({
                 el: added,
                 done: isDone
             });
@@ -23,7 +26,7 @@ var components = (function () {
                 return;
             }
 
-            each(component, data, index, container, callback);
+            each(obj);
         });
     }
 
