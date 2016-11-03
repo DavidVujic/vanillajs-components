@@ -1,28 +1,29 @@
 var components = (function () {
 
-    function add(component, data, container, done) {
-        component.create(data, function (item) {
-            container.appendChild(item);
+    function add(component, data, container, onAdded) {
+        component.create(data, function (el) {
+            container.appendChild(el);
 
-            if (done) {
-                done();
-            }
+            onAdded(el);
         })
     }
 
-    function each(component, data, index, container, done) {
-        add(component, data[index], container, function () {
+    function each(component, data, index, container, callback) {
+        add(component, data[index], container, function (added) {
             index++;
 
-            if (data.length <= index) {
-                if (done) {
-                    done(container);
-                }
+            var isDone = data.length <= index;
 
+            callback({
+                el: added,
+                done: isDone
+            });
+
+            if (isDone) {
                 return;
             }
 
-            each(component, data, index, container, done);
+            each(component, data, index, container, callback);
         });
     }
 

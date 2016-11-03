@@ -1,19 +1,15 @@
 var events = (function () {
 
-    function trigger(target, actions) {
-        function filterByType(action) {
-            return action.type === target.type;
-        }
+    function on(type, nodes, action) {
+        var elements = Array.prototype.slice.call(nodes);
 
-        target.preventDefault();
-
-        actions.filter(filterByType).forEach(function (action) {
-            action.func(target);
-        });
+        elements.forEach(function (el) {
+            el.addEventListener(type, action);
+        })
     }
 
     return {
-        trigger: trigger
+        on: on
     };
 
 }());

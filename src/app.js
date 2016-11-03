@@ -1,13 +1,15 @@
-(function (components, list) {
+(function (components, events, list) {
 
     var container = document.querySelector('.vanilla-list');
     var data = ['You', 'might', '(not)', 'need', 'a', 'JavaScript', 'framework'];
 
-    list.on('click', function (e) {
-        console.log('clicked!');
-        console.log(e.target.innerHTML);
+    components.add(list, data, container, function (el) {
+        events.on('click', el.childNodes, log);
     });
 
-    components.add(list, data, container);
+    function log(e) {
+        console.log('element: ' + e.target.nodeName + ' value: ' + e.target.innerHTML);
+    }
 
-}(components, vanilla.list));
+
+}(components, events, vanilla.list));
