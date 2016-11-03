@@ -1,8 +1,9 @@
 var templates = (function () {
     var savedTemplates = {};
 
-    function httpGet(url, onSuccess, onError) {
+    function httpGet(path, onSuccess, onError) {
         var request = new XMLHttpRequest();
+        var url = '//' + window.location.host + path;
 
         request.open('GET', url, true);
 
