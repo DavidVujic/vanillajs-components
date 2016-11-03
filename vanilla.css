@@ -1,0 +1,34 @@
+body {
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    color: greenyellow;
+    font-family: monospace;
+    font-size: 1.8vw;
+}
+
+.vanilla-list {
+    width: 50vw;
+    height: 100%;
+    float: left;
+}
+
+.vanilla-terminal {
+    width: 45vw;
+    height: 100%;
+    float: right;
+}
+
+.terminal {
+    background-color: purple;
+    width: 95%;
+    height: 100%;
+}
+
+.cursor {
+    color: lightgreen;
+}
+
+.log {
+    color: lightgray;
+}
