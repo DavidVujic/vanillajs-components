@@ -6,7 +6,7 @@ var logger = (function (components) {
     }
 
     function logEvent(e) {
-        var message = e.target.nodeName + ' : ' + e.target.innerHTML;
+        var message = e.type + ' : ' + e.target.nodeName + ' : ' + e.target.innerHTML;
         log(message);
     }
 
@@ -14,9 +14,11 @@ var logger = (function (components) {
         logContainer.innerHTML = '';
     }
 
-    function create(component, container) {
+    function create(component, container, done) {
         components.add(component, '', container, function (el) {
             logContainer = el.querySelector('.log');
+
+            done();
         });
     }
 

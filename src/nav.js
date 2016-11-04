@@ -1,8 +1,10 @@
-var nav = (function (components, logger, events) {
+var nav = (function (components, events) {
 
-    function create(component, data, container) {
+    function create(component, data, container, logger, done) {
         components.add(component, data, container, function (el) {
             events.on('click', el.childNodes, logger.logEvent);
+
+            done();
         });
     }
 
@@ -10,4 +12,4 @@ var nav = (function (components, logger, events) {
         create: create
     };
 
-}(components, logger, events));
+}(components, events));
