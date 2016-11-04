@@ -1,23 +1,10 @@
-(function (components, events, list, terminal) {
+(function (logger, nav, terminal, list) {
 
-    var listContainer = document.querySelector('.vanilla-list');
-    var terminalContainer = document.querySelector('.vanilla-terminal');
+    var logContainer = document.querySelector('.vanilla-terminal');
+    logger.create(terminal, logContainer);
 
-    var data = ['You', 'might', '(not)', 'need', 'a', 'JavaScript', 'framework'];
+    var navContainer = document.querySelector('.left-menu');
+    var navData = ['You', 'might', '(not)', 'need', 'a', 'JavaScript', 'framework'];
+    nav.create(list, navData, navContainer);
 
-    var logger;
-
-    components.add(list, data, listContainer, function (el) {
-        events.on('click', el.childNodes, log);
-    });
-
-    components.add(terminal, null, terminalContainer, function (el) {
-        logger = el.querySelector('.log');
-    })
-
-    function log(e) {
-        var message = 'element: ' + e.target.nodeName + ' value: ' + e.target.innerHTML;
-        logger.innerHTML += '<br/>' + message;
-    }
-
-}(components, events, vanilla.list, vanilla.terminal));
+}(logger, nav, vanilla.terminal, vanilla.list));

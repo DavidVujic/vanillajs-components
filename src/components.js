@@ -4,8 +4,10 @@ var components = (function () {
         component.create(data, function (el) {
             container.appendChild(el);
 
-            onAdded(el);
-        })
+            if (onAdded) {
+                onAdded(el);
+            }
+        });
     }
 
     function each(obj) {
