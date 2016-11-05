@@ -1,22 +1,22 @@
-vanilla.nav = (function (components) {
+vanilla.nav = (function (components, list) {
 
-    function create(obj, done) {
+    function create(data, done) {
         templates.get('/src/nav/template.html', function (el) {
+
             components.add({
-                component: obj.component,
-                data: obj.data,
+                component: list,
+                data: data,
                 container: el,
-                callback: function (child) {
-                    obj.callback(child);
+                callback: function () {
                     done(el);
                 }
             });
-        });
 
+        });
     }
 
     return {
         create: create
     };
 
-}(components));
+}(components, vanilla.list));
