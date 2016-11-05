@@ -7,9 +7,8 @@ vanilla.logger = (function (components, Printer, terminal) {
                 component: terminal,
                 data: data,
                 container: el,
-                callback: function (child) {
-                    var printer = Printer(child.querySelector('.log'));
-                    done(el, printer);
+                callback: function () {
+                    done(el);
                 }
             });
         });
