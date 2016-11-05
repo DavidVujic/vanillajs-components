@@ -9,6 +9,9 @@
 
         nav.create(data, function (el) {
             getContainer('.left-menu').appendChild(el);
+
+            events.on('click', el.querySelectorAll('li'), logInstance.logEvent);
+
             done();
         });
     }
@@ -17,20 +20,20 @@
         var data = ['output: '];
 
         logger.createInstance(data, function (instance, el) {
-            logger = instance;
+            logInstance = instance;
             getContainer('.vanilla-terminal').appendChild(el);
             done();
         });
     }
 
-    addLeftNavigation(function () {
-        logger.log('navigation components loaded');
-    });
-
     addLogger(function () {
-        logger.log('logger components loaded');
+        logInstance.log('logger components loaded');
+
+        addLeftNavigation(function () {
+            logInstance.log('navigation components loaded');
+        });
     });
 
-    var logger;
+    var logInstance;
 
 }(events, vanilla.nav, vanilla.logger, vanilla.terminal));
