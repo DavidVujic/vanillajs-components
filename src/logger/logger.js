@@ -38,7 +38,7 @@ vanilla.logger = (function (components, terminal) {
 
         function logEvent(e) {
             var message = e.type + ' : ' + e.target.nodeName + ' : ' + e.target.innerHTML;
-            log(message);
+            logText(message);
         }
 
         function clear() {
