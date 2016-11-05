@@ -1,4 +1,4 @@
-vanilla.logger = (function (components, Printer, terminal) {
+vanilla.logger = (function (components, terminal) {
 
     function create(data, done) {
 
@@ -19,4 +19,4 @@ vanilla.logger = (function (components, Printer, terminal) {
         create: create
     };
 
-}(components, Printer, vanilla.terminal));
+}(components, vanilla.terminal));

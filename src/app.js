@@ -1,4 +1,4 @@
-(function (navigation, logger, events) {
+(function (navigation, logger, events, Printer) {
 
     var printer;
 
@@ -28,4 +28,4 @@
         });
     }
 
-}(vanilla.nav, vanilla.logger, events));
+}(vanilla.nav, vanilla.logger, events, Printer));
