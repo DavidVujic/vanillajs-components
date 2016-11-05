@@ -10,7 +10,7 @@
         nav.create(data, function (el) {
             getContainer('.left-menu').appendChild(el);
 
-            events.on('click', el.querySelectorAll('li'), logInstance.log);
+            events.on('click', el.querySelectorAll('li'), print);
 
             done();
         });
@@ -20,20 +20,20 @@
         var data = ['output: '];
 
         logger.create(data, function (el, returnedObj) {
-            logInstance = returnedObj;
+            print = returnedObj.print;
             getContainer('.vanilla-terminal').appendChild(el);
             done();
         });
     }
 
     addLogger(function () {
-        logInstance.log('logger components loaded');
+        print('logger components loaded');
 
         addLeftNavigation(function () {
-            logInstance.log('navigation components loaded');
+            print('navigation components loaded');
         });
     });
 
-    var logInstance;
+    var print;
 
 }(events, vanilla.nav, vanilla.logger, vanilla.terminal));
