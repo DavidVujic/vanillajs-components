@@ -1,23 +1,20 @@
 var components = (function () {
 
-    function add(component, data, container, onAdded) {
-        component.create(data, function (el) {
-            container.appendChild(el);
+    function add(obj) {
+        obj.component.create(obj.data, function (el) {
+            obj.container.appendChild(el);
 
-            if (onAdded) {
-                onAdded(el);
+            if (obj.callback) {
+                obj.callback(el);
             }
         });
     }
 
     function each(obj) {
-        var isDone;
-        obj.index = obj.index || 0;
-
-        add(obj.component, obj.data[obj.index], obj.container, function (added) {
+        function onAdded(added) {
             obj.index++;
 
-            isDone = obj.data.length <= obj.index;
+            var isDone = obj.data.length <= obj.index;
 
             obj.callback({
                 el: added,
@@ -29,6 +26,15 @@ var components = (function () {
             }
 
             each(obj);
+        }
+
+        obj.index = obj.index || 0;
+
+        add({
+            component: obj.component,
+            data: obj.data[obj.index],
+            container: obj.container,
+            callback: onAdded
         });
     }
 

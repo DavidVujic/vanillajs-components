@@ -15,10 +15,14 @@ var logger = (function (components) {
     }
 
     function create(component, container, done) {
-        components.add(component, '', container, function (el) {
-            logContainer = el.querySelector('.log');
+        components.add({
+            component: component,
+            container: container,
+            callback: function (el) {
+                logContainer = el.querySelector('.log');
 
-            done();
+                done();
+            }
         });
     }
 

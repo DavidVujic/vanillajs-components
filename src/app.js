@@ -1,4 +1,4 @@
-(function (logger, nav, terminal, list) {
+(function (logger, events, nav, terminal, list) {
 
     function addLogger(done) {
         var logContainer = document.querySelector('.vanilla-terminal');
@@ -6,15 +6,22 @@
     }
 
     function addLeftNavigation(done) {
-        var navContainer = document.querySelector('.left-menu');
-        var navData = ['You', 'might', '(not)', 'need', 'a', 'JavaScript', 'framework'];
-        nav.create(list, navData, navContainer, logger, done);
+        nav.create({
+            component: list,
+            data: ['You', 'might', '(not)', 'need', 'a', 'JavaScript', 'framework'],
+            container: document.querySelector('.left-menu'),
+            callback: function (el) {
+                events.on('click', el.childNodes, logger.logEvent);
+            }
+        }, done);
     }
 
     addLogger(function () {
-        addLeftNavigation(function () {
+        addLeftNavigation(function (el) {
+            console.log(el);
+            document.querySelector('.left-menu').appendChild(el);
             logger.log('all components loaded');
         });
     });
 
-}(logger, nav, vanilla.terminal, vanilla.list));
+}(logger, events, vanilla.nav, vanilla.terminal, vanilla.list));
