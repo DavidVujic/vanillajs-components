@@ -10,7 +10,7 @@
         nav.create(data, function (el) {
             getContainer('.left-menu').appendChild(el);
 
-            events.on('click', el.querySelectorAll('li'), logInstance.logEvent);
+            events.on('click', el.querySelectorAll('li'), logInstance.log);
 
             done();
         });
@@ -19,8 +19,8 @@
     function addLogger(done) {
         var data = ['output: '];
 
-        logger.createInstance(data, function (instance, el) {
-            logInstance = instance;
+        logger.create(data, function (el, returnedObj) {
+            logInstance = returnedObj;
             getContainer('.vanilla-terminal').appendChild(el);
             done();
         });

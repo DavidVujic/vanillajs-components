@@ -1,7 +1,6 @@
 vanilla.logger = (function (components, terminal) {
 
-    function createInstance(data, done) {
-        var logger;
+    function create(data, done) {
 
         templates.get('/src/logger/template.html', function (el) {
             components.add({
@@ -9,24 +8,32 @@ vanilla.logger = (function (components, terminal) {
                 data: data,
                 container: el,
                 callback: function (child) {
-                    logger = child.querySelector('.log');
-
-                    done({
-                        log: log,
-                        logEvent: logEvent,
-                        clear: clear
-                    }, el);
+                    var instance = logInstance(child.querySelector('.log'));
+                    done(el, instance);
                 }
             });
         });
 
+    }
+
+    function logInstance(element) {
+
         function log(message) {
-            if (message === false) {
-                logger.innerHTML = '';
+            if (typeof (message) === 'string') {
+                logText(message);
                 return;
             }
 
-            logger.innerHTML += '<br/>' + message;
+            logEvent(message);
+        }
+
+        function logText(text) {
+            if (text === false) {
+                element.innerHTML = '';
+                return;
+            }
+
+            element.innerHTML += '<br/>' + text;
         }
 
         function logEvent(e) {
@@ -37,10 +44,15 @@ vanilla.logger = (function (components, terminal) {
         function clear() {
             log(false);
         }
+
+        return {
+            log: log,
+            clear: clear
+        };
     }
 
     return {
-        createInstance: createInstance
+        create: create
     };
 
 }(components, vanilla.terminal));
