@@ -1,39 +1,29 @@
-(function (events, nav, logger, terminal) {
-
-    function getContainer(selector) {
-        return document.querySelector(selector);
-    }
-
-    function addLeftNavigation(done) {
-        var data = ['You', 'might', '(not)', 'need', 'a', 'JavaScript', 'framework']
-
-        nav.create(data, function (el) {
-            getContainer('.left-menu').appendChild(el);
-
-            events.on('click', el.querySelectorAll('li'), print);
-
-            done();
-        });
-    }
-
-    function addLogger(done) {
-        var data = ['output: '];
-
-        logger.create(data, function (el, returnedObj) {
-            print = returnedObj.print;
-            getContainer('.vanilla-terminal').appendChild(el);
-            done();
-        });
-    }
-
-    addLogger(function () {
-        print('logger components loaded');
-
-        addLeftNavigation(function () {
-            print('navigation components loaded');
-        });
-    });
+(function (navigation, logger, events) {
 
     var print;
 
-}(events, vanilla.nav, vanilla.logger, vanilla.terminal));
+    loadLogger(function (loggerElement) {
+        document.querySelector('.vanilla-terminal').appendChild(loggerElement);
+
+        loadLeftNav(function (navElement) {
+            document.querySelector('.left-menu').appendChild(navElement);
+        });
+    });
+
+    function loadLogger(done) {
+        var data = ['output: '];
+        logger.create(data, function (el, returnedObj) {
+            print = returnedObj.print;
+            done(el);
+        });
+    }
+
+    function loadLeftNav(done) {
+        var data = ['You', 'might', '(not)', 'need', 'a', 'JavaScript', 'framework']
+        navigation.create(data, function (el) {
+            events.on('click', el.querySelectorAll('li'), print);
+            done(el);
+        });
+    }
+
+}(vanilla.nav, vanilla.logger, events));
