@@ -1,4 +1,4 @@
-function Printer(element) {
+function Printer() {
     var element = {};
 
     function printText(text) {
