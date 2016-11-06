@@ -2,29 +2,26 @@
 
     var printer;
 
-    loadLogView(function (logViewElement) {
-        printer = Printer(logViewElement.querySelector('.log'));
-        document.querySelector('.vanilla-terminal').appendChild(logViewElement);
-
-        loadLeftNav(function (navElement) {
-            document.querySelector('.left-menu').appendChild(navElement);
-        });
+    loadLogView(function () {
+        loadLeftMenu();
     });
 
     function loadLogView(done) {
-        var data = ['output: '];
+        logView.create('output: ', function (el) {
+            var logContainer = el.querySelector('.log');
+            printer = Printer(logContainer);
 
-        logView.create(data, function (el) {
-            done(el);
+            document.querySelector('.vanilla-terminal').appendChild(el);
+            done();
         });
     }
 
-    function loadLeftNav(done) {
+    function loadLeftMenu() {
         var data = ['You', 'might', '(not)', 'need', 'a', 'JavaScript', 'framework']
 
         navigation.create(data, function (el) {
             events.on('click', el.querySelectorAll('li'), printer.print);
-            done(el);
+            document.querySelector('.left-menu').appendChild(el);
         });
     }
 
