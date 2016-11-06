@@ -1,8 +1,8 @@
-vanilla.logger = (function (components, terminal) {
+vanilla.logView = (function (components, terminal) {
 
     function create(data, done) {
 
-        templates.get('/src/logger/template.html', function (el) {
+        templates.get('/src/logView/template.html', function (el) {
             components.add({
                 component: terminal,
                 data: data,

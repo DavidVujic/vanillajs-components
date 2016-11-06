@@ -1,20 +1,20 @@
-(function (navigation, logger, events, Printer) {
+(function (navigation, logView, events, Printer) {
 
     var printer;
 
-    loadLogger(function (loggerElement) {
-        printer = Printer(loggerElement.querySelector('.log'));
-        document.querySelector('.vanilla-terminal').appendChild(loggerElement);
+    loadLogView(function (logViewElement) {
+        printer = Printer(logViewElement.querySelector('.log'));
+        document.querySelector('.vanilla-terminal').appendChild(logViewElement);
 
         loadLeftNav(function (navElement) {
             document.querySelector('.left-menu').appendChild(navElement);
         });
     });
 
-    function loadLogger(done) {
+    function loadLogView(done) {
         var data = ['output: '];
 
-        logger.create(data, function (el) {
+        logView.create(data, function (el) {
             done(el);
         });
     }
@@ -28,4 +28,4 @@
         });
     }
 
-}(vanilla.nav, vanilla.logger, events, Printer));
+}(vanilla.nav, vanilla.logView, events, Printer));
