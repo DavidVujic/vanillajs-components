@@ -1,13 +1,5 @@
 function Printer(element) {
-
-    function print(message) {
-        if (typeof (message) === 'string') {
-            printText(message);
-            return;
-        }
-
-        printEvent(message);
-    }
+    var element = {};
 
     function printText(text) {
         element.innerHTML += '<br/>' + text;
@@ -18,11 +10,25 @@ function Printer(element) {
         printText(message);
     }
 
+    function setTarget(el) {
+        element = el;
+    }
+
+    function print(message) {
+        if (typeof (message) === 'string') {
+            printText(message);
+            return;
+        }
+
+        printEvent(message);
+    }
+
     function clear() {
         element.innerHTML = '';
     }
 
     return {
+        setTarget: setTarget,
         print: print,
         clear: clear
     };
