@@ -1,7 +1,7 @@
 function Printer(element) {
 
     function print(message) {
-        if (typeof(message) === 'string') {
+        if (typeof (message) === 'string') {
             printText(message);
             return;
         }
@@ -22,5 +22,8 @@ function Printer(element) {
         element.innerHTML = '';
     }
 
-    return {print: print, clear: clear};
+    return {
+        print: print,
+        clear: clear
+    };
 }
