@@ -10,54 +10,63 @@ body {
 #left-menu {
     width: 20vw;
     height: 100%;
-    padding-right:5vw;
+    padding-right: 2vw;
     float: left;
 }
 
-#main {
-    width: 60vw;
-    height: 100%;
-    float: left;
-}
-
-#vanilla-terminal {
-    width: 45vw;
-    padding-top:10px;
-    clear:both;
-}
-
-nav {
+#left-menu nav {
     border-style: dotted;
     border-color: steelblue;
 }
 
-nav .listItem {
-  cursor: pointer;
-  width: 90%;
+#left-menu nav .listItem {
+    cursor: pointer;
+    width: 90%;
 }
 
-.list {
+#left-menu nav .list {
     border-style: dotted;
     border-color: skyblue;
     margin: 10px 10px 10px 10px;
 }
 
-.list ul {
+#left-menu nav .list ul {
     list-style-position: inside;
     list-style-type: none;
 }
 
-.listItem {
+#left-menu nav .list .listItem {
     border-style: dotted;
     border-color: slateblue;
 }
 
-.logView {
-  border-style: dotted;
-  border-color: greenyellow;
+#main {
+    width: 70vw;
+    height: 100%;
+    float: left;
 }
 
-.terminal {
+#main .terminal {
+    font-size: 3em;
+    border-style: dotted;
+    border-color: purple;
+    width: 95%;
+    height: 100%;
+    margin: 10px 10px 10px 10px;
+}
+
+#vanilla-terminal {
+    width: 90vw;
+    padding-top: 10px;
+    clear: both;
+}
+
+#vanilla-terminal .logView {
+    border-style: dotted;
+    border-color: greenyellow;
+}
+
+#vanilla-terminal .logView .terminal {
     border-style: dotted;
     border-color: purple;
     width: 95%;
@@ -67,8 +76,4 @@ nav .listItem {
 
 .cursor {
     color: lightgreen;
-}
-
-.log {
-    color: lightgray;
 }
