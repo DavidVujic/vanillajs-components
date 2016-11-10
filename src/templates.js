@@ -36,7 +36,7 @@ var templates = (function () {
         return savedTemplates[key].cloneNode(true);
     }
 
-    function getTemplate(path, callback) {
+    function loadTemplate(path, callback) {
 
         if (savedTemplates.hasOwnProperty(path)) {
             callback(getSavedTemplate(path));
@@ -50,6 +50,6 @@ var templates = (function () {
         });
     }
     return {
-        get: getTemplate
+        load: loadTemplate
     };
 }());

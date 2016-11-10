@@ -1,13 +1,12 @@
-vanilla.nav = (function (components, list) {
+vanilla.nav = (function (list) {
 
     function create(data, done) {
-        templates.get('/src/nav/template.html', function (el) {
+        templates.load('/src/nav/nav.html', function (el) {
 
-            components.add({
-                component: list,
-                data: data,
-                container: el,
-                callback: function () {
+            list.create(data, function (child) {
+                el.appendChild(child);
+
+                if (done) {
                     done(el);
                 }
             });
@@ -19,4 +18,4 @@ vanilla.nav = (function (components, list) {
         create: create
     };
 
-}(components, vanilla.list));
+}(vanilla.list));

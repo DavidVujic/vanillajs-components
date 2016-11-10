@@ -1,9 +1,9 @@
-vanilla.list = (function (templates, components, listItem) {
+vanilla.list = (function (templates, componentHelper, listItem) {
 
     function create(data, done) {
-        templates.get('/src/list/template.html', function (el) {
+        templates.load('/src/list/list.html', function (el) {
 
-            components.each({
+            componentHelper.each({
                 component: listItem,
                 data: data,
                 container: el,

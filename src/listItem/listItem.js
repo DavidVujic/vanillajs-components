@@ -1,9 +1,12 @@
 vanilla.listItem = (function (templates) {
 
     function create(data, done) {
-        templates.get('/src/listItem/template.html', function (el) {
+        templates.load('/src/listItem/listItem.html', function (el) {
             el.textContent = data;
-            done(el);
+
+            if (done) {
+                done(el);
+            }
         });
     }
 
