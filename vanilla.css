@@ -14,7 +14,7 @@ body {
     float: left;
 }
 
-#left-menu .nav {
+#left-menu .nav:hover {
     border-style: dotted;
     border-color: steelblue;
     border-width: thin;
@@ -26,20 +26,23 @@ body {
 }
 
 #left-menu .nav .list {
+    margin: 10px 10px 10px 10px;
+}
+
+#left-menu .nav .list:hover {
     border-style: dotted;
     border-color: skyblue;
     border-width: thin;
-    margin: 10px 10px 10px 10px;
 }
 
 #left-menu .nav .list ul {
     list-style-position: inside;
     list-style-type: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
 }
 
-#left-menu nav .list .listItem {
+#left-menu nav .list .listItem:hover {
     border-style: dotted;
     border-color: slateblue;
     border-width: thin;
@@ -53,12 +56,15 @@ body {
 
 #main .terminal {
     font-size: 3em;
-    border-style: dotted;
-    border-color: purple;
-    border-width: thin;
     width: 95%;
     height: 100%;
     margin: 10px 10px 10px 10px;
+}
+
+#main .terminal:hover {
+    border-style: dotted;
+    border-color: purple;
+    border-width: thin;
 }
 
 #vanilla-terminal {
@@ -67,19 +73,22 @@ body {
     clear: both;
 }
 
-#vanilla-terminal .logView {
+#vanilla-terminal .logView:hover {
     border-style: dotted;
     border-color: greenyellow;
     border-width: thin;
 }
 
 #vanilla-terminal .logView .terminal {
-    border-style: dotted;
-    border-color: purple;
-    border-width: thin;
     width: 95%;
     height: 100%;
     margin: 10px 10px 10px 10px;
+}
+
+#vanilla-terminal .logView .terminal:hover {
+    border-style: dotted;
+    border-color: purple;
+    border-width: thin;
 }
 
 #vanilla-terminal .logView .terminal .cursor {
