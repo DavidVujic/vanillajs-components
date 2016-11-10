@@ -14,30 +14,35 @@ body {
     float: left;
 }
 
-#left-menu nav {
+#left-menu .nav {
     border-style: dotted;
     border-color: steelblue;
+    border-width: thin;
 }
 
-#left-menu nav .listItem {
+#left-menu .nav .listItem {
     cursor: pointer;
     width: 90%;
 }
 
-#left-menu nav .list {
+#left-menu .nav .list {
     border-style: dotted;
     border-color: skyblue;
+    border-width: thin;
     margin: 10px 10px 10px 10px;
 }
 
-#left-menu nav .list ul {
+#left-menu .nav .list ul {
     list-style-position: inside;
     list-style-type: none;
+    margin: 0;
+    padding: 0;
 }
 
 #left-menu nav .list .listItem {
     border-style: dotted;
     border-color: slateblue;
+    border-width: thin;
 }
 
 #main {
@@ -50,6 +55,7 @@ body {
     font-size: 3em;
     border-style: dotted;
     border-color: purple;
+    border-width: thin;
     width: 95%;
     height: 100%;
     margin: 10px 10px 10px 10px;
@@ -64,16 +70,18 @@ body {
 #vanilla-terminal .logView {
     border-style: dotted;
     border-color: greenyellow;
+    border-width: thin;
 }
 
 #vanilla-terminal .logView .terminal {
     border-style: dotted;
     border-color: purple;
+    border-width: thin;
     width: 95%;
     height: 100%;
     margin: 10px 10px 10px 10px;
 }
 
-.cursor {
+#vanilla-terminal .logView .terminal .cursor {
     color: lightgreen;
 }

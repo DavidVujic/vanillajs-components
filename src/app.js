@@ -25,7 +25,7 @@
 
     function loadMainView(e) {
         var container = document.querySelector('#main');
-        var data = '*';
+        var data = 'vanilla components';
 
         if (e) {
             container.removeChild(container.firstChild);
