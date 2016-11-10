@@ -1,8 +1,10 @@
 function Printer() {
-    var element = {};
+    var elements = [];
 
     function printText(text) {
-        element.innerHTML += '<br/>' + text;
+        elements.forEach(function (element) {
+            element.innerHTML += '<br/>' + text;
+        });
     }
 
     function printEvent(e) {
@@ -10,8 +12,8 @@ function Printer() {
         printText(message);
     }
 
-    function setTarget(el) {
-        element = el;
+    function addTarget(el) {
+        elements.push(el);
     }
 
     function print(message) {
@@ -24,11 +26,13 @@ function Printer() {
     }
 
     function clear() {
-        element.innerHTML = '';
+        elements.forEach(function (element) {
+            element.innerHTML = '';
+        });
     }
 
     return {
-        setTarget: setTarget,
+        addTarget: addTarget,
         print: print,
         clear: clear
     };

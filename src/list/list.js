@@ -6,7 +6,7 @@ vanilla.list = (function (templates, componentHelper, listItem) {
             componentHelper.each({
                 component: listItem,
                 data: data,
-                container: el,
+                container: el.querySelector('ul'),
                 callback: function (res) {
                     if (res.done) {
                         done(el);

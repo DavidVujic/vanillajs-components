@@ -7,22 +7,62 @@ body {
     font-size: 1.8vw;
 }
 
-.left-menu {
-    width: 50vw;
+#left-menu {
+    width: 20vw;
+    height: 100%;
+    padding-right:5vw;
+    float: left;
+}
+
+#main {
+    width: 60vw;
     height: 100%;
     float: left;
 }
 
-.vanilla-terminal {
+#vanilla-terminal {
     width: 45vw;
-    height: 100%;
-    float: right;
+    padding-top:10px;
+    clear:both;
+}
+
+nav {
+    border-style: dotted;
+    border-color: steelblue;
+}
+
+nav .listItem {
+  cursor: pointer;
+  width: 90%;
+}
+
+.list {
+    border-style: dotted;
+    border-color: skyblue;
+    margin: 10px 10px 10px 10px;
+}
+
+.list ul {
+    list-style-position: inside;
+    list-style-type: none;
+}
+
+.listItem {
+    border-style: dotted;
+    border-color: slateblue;
+}
+
+.logView {
+  border-style: dotted;
+  border-color: greenyellow;
 }
 
 .terminal {
-    background-color: purple;
+    border-style: dotted;
+    border-color: purple;
     width: 95%;
     height: 100%;
+    margin: 10px 10px 10px 10px;
 }
 
 .cursor {
