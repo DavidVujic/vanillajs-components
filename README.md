@@ -40,8 +40,11 @@ vanilla.listItem = (function (templates) {
 The listItem.html template
 ````html
 <li class="listItem" title="the listItem component"></li>
-
 ````
+
+#### An example web page with vanilla components: ####
+https://davidvujic.github.io/vanillajs-components/
+
 ### What next? ###
 To step by step add tools & frameworks, that will solve current issues and improve the quality & readability of the code base.
 
