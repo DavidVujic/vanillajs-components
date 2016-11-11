@@ -1,4 +1,6 @@
-vanilla.logView = (function (terminal) {
+/*global templates, vanilla */
+
+vanilla.logView = (function (templates, terminal) {
 
     function create(data, done) {
 
@@ -19,4 +21,4 @@ vanilla.logView = (function (terminal) {
         create: create
     };
 
-}(vanilla.terminal));
+}(templates, vanilla.terminal));

@@ -7,7 +7,7 @@ var events = (function () {
             actions.forEach(function (action) {
                 el.addEventListener(type, action);
             });
-        })
+        });
     }
 
     return {

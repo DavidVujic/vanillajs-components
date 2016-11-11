@@ -1,3 +1,5 @@
+/*global templates, vanilla */
+
 vanilla.terminal = (function (templates) {
 
     function create(data, done) {

@@ -1,3 +1,5 @@
+/*global templates, components, vanilla */
+
 vanilla.list = (function (templates, componentHelper, listItem) {
 
     function create(data, done) {

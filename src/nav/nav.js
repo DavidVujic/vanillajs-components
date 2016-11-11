@@ -1,4 +1,6 @@
-vanilla.nav = (function (list) {
+/*global templates, vanilla */
+
+vanilla.nav = (function (templates, list) {
 
     function create(data, done) {
         templates.load('/src/nav/nav.html', function (el) {
@@ -18,4 +20,4 @@ vanilla.nav = (function (list) {
         create: create
     };
 
-}(vanilla.list));
+}(templates, vanilla.list));

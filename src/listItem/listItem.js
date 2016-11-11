@@ -1,3 +1,5 @@
+/*global templates, vanilla */
+
 vanilla.listItem = (function (templates) {
 
     function create(data, done) {
