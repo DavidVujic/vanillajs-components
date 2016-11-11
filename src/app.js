@@ -1,3 +1,5 @@
+/*global events, Printer */
+
 (function (navigation, logView, terminal, events, Printer) {
 
     var printer = Printer();
@@ -15,7 +17,7 @@
             'a',
             'JavaScript',
             'framework'
-        ]
+        ];
 
         navigation.create(data, function (el) {
             events.on('click', el.querySelectorAll('li'), [printer.print, loadMainView]);

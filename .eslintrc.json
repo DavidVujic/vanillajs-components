@@ -10,5 +10,8 @@
     "env": {
         "browser": true
     },
+    "globals": {
+        "vanilla": true
+    },
     "extends": "eslint:recommended"
 }

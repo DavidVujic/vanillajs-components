@@ -1,4 +1,4 @@
-/*global templates, components, vanilla */
+/*global templates, components */
 
 vanilla.list = (function (templates, componentHelper, listItem) {
 

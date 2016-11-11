@@ -1,4 +1,4 @@
-/*global templates, vanilla */
+/*global templates */
 
 vanilla.listItem = (function (templates) {
 
