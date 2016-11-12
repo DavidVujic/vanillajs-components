@@ -48,7 +48,7 @@ https://davidvujic.github.io/vanillajs-components/
 To step by step add tools & frameworks, that will solve current issues and improve the quality & readability of the code base.
 
 Something like this:
-* a template engine
+* :white_check_mark: a template engine [compare with vanilla code](https://github.com/DavidVujic/vanillajs-components/compare/with-template-engine)
 * bundling & minification
 * ES 2017 & transpiling with Babel
 * Webpack as a build system
