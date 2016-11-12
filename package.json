@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "live-server",
+    "deps:mustache": "cp node_modules/mustache/mustache.min.js lib/mustache.min.js",
+    "build": "npm run deps:mustache",
+    "start": "npm run build && live-server",
     "lint": "eslint src"
   },
   "repository": {
@@ -20,5 +22,8 @@
   "devDependencies": {
     "eslint": "^3.10.0",
     "live-server": "^1.1.0"
+  },
+  "dependencies": {
+    "mustache": "^2.3.0"
   }
 }
