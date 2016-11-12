@@ -27,13 +27,17 @@ var templates = (function () {
     }
 
     function saveTemplate(path, template) {
-        var container = document.createElement('div');
-        container.innerHTML = template;
-        savedTemplates[path] = container.children[0];
+        savedTemplates[path] = template;
     }
 
     function getSavedTemplate(key) {
-        return savedTemplates[key].cloneNode(true);
+        return toNode(savedTemplates[key]);
+    }
+
+    function toNode(template) {
+        var container = document.createElement('div');
+        container.innerHTML = template;
+        return container.children[0];
     }
 
     function loadTemplate(path, callback) {
