@@ -1,8 +1,6 @@
-/*global templates */
+define(['templates', 'list/list'], function (templates, list) {
 
-vanilla.nav = (function (templates, list) {
-
-    function create(data, done) {      
+    function create(data, done) {
         templates.load('/src/nav/nav.html', null, function (el) {
 
             list.create(data, function (child) {
@@ -19,5 +17,4 @@ vanilla.nav = (function (templates, list) {
     return {
         create: create
     };
-
-}(templates, vanilla.list));
+});

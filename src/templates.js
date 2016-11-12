@@ -1,6 +1,4 @@
-/*global Mustache */
-
-var templates = (function (engine) {
+define(['../lib/mustache.min.js'], function (engine) {
     var savedTemplates = {};
 
     function getAbsolutePath() {
@@ -58,4 +56,4 @@ var templates = (function (engine) {
     return {
         load: loadTemplate
     };
-}(Mustache));
+});

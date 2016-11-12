@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "deps:requirejs": "cp node_modules/requirejs/require.js lib/requirejs.js",
     "deps:mustache": "cp node_modules/mustache/mustache.min.js lib/mustache.min.js",
-    "build": "npm run deps:mustache",
+    "build": "npm run deps:requirejs && npm run deps:mustache",
     "start": "npm run build && live-server",
     "lint": "eslint src"
   },
@@ -24,6 +25,7 @@
     "live-server": "^1.1.0"
   },
   "dependencies": {
-    "mustache": "^2.3.0"
+    "mustache": "^2.3.0",
+    "requirejs": "^2.3.2"
   }
 }

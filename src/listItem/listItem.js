@@ -1,6 +1,4 @@
-/*global templates */
-
-vanilla.listItem = (function (templates) {
+define(['templates'], function (templates) {
 
     function create(data, done) {
         var templateData = {
@@ -18,5 +16,4 @@ vanilla.listItem = (function (templates) {
     return {
         create: create
     };
-
-}(templates));
+});

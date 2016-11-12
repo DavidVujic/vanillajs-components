@@ -1,6 +1,4 @@
-/*global templates, components */
-
-vanilla.list = (function (templates, componentHelper, listItem) {
+define(['templates', 'components', 'listItem/listItem'], function (templates, componentHelper, listItem) {
 
     function create(data, done) {
         templates.load('/src/list/list.html', null, function (el) {
@@ -21,5 +19,4 @@ vanilla.list = (function (templates, componentHelper, listItem) {
     return {
         create: create
     };
-
-}(templates, components, vanilla.listItem));
+});

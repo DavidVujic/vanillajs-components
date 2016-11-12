@@ -1,5 +1,4 @@
-var eventHelper = (function () {
-
+define(function () {
     function on(type, nodes, actions) {
         var elements = Array.prototype.slice.call(nodes);
 
@@ -13,5 +12,4 @@ var eventHelper = (function () {
     return {
         on: on
     };
-
-}());
+});

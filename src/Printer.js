@@ -1,4 +1,4 @@
-function Printer() {
+define(function () {
     var elements = [];
 
     function printText(text) {
@@ -36,4 +36,4 @@ function Printer() {
         print: print,
         clear: clear
     };
-}
+});

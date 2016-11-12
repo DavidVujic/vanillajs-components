@@ -1,6 +1,4 @@
-/*global templates */
-
-vanilla.terminal = (function (templates) {
+define(['templates'], function (templates) {
 
     function create(data, done) {
         templates.load('/src/terminal/terminal.html', data, function (el) {
@@ -13,5 +11,4 @@ vanilla.terminal = (function (templates) {
     return {
         create: create
     };
-
-}(templates));
+});

@@ -11,7 +11,7 @@
         "browser": true
     },
     "globals": {
-        "vanilla": true
+        "define": true
     },
     "extends": "eslint:recommended"
 }

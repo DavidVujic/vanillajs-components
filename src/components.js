@@ -1,5 +1,4 @@
-var components = (function () {
-
+define(function () {
     function add(obj) {
         obj.component.create(obj.data, function (el) {
             obj.container.appendChild(el);
@@ -42,4 +41,4 @@ var components = (function () {
         add: add,
         each: each
     };
-}());
+});
