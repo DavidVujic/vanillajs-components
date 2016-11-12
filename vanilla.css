@@ -14,22 +14,24 @@ body {
     float: left;
 }
 
+#left-menu .nav {
+    padding: 1px 1px 1px 1px;
+}
+
 #left-menu .nav:hover {
+    padding: 0 0 0 0;
     border-style: dotted;
     border-color: steelblue;
     border-width: thin;
 }
 
-#left-menu .nav .listItem {
-    cursor: pointer;
-    width: 90%;
-}
-
 #left-menu .nav .list {
     margin: 10px 10px 10px 10px;
+    padding: 1px 1px 1px 1px;
 }
 
 #left-menu .nav .list:hover {
+    padding: 0 0 0 0;
     border-style: dotted;
     border-color: skyblue;
     border-width: thin;
@@ -42,7 +44,14 @@ body {
     margin: 0;
 }
 
+#left-menu .nav .listItem {
+    padding: 1px 1px 1px 1px;
+    cursor: pointer;
+    width: 90%;
+}
+
 #left-menu nav .list .listItem:hover {
+    padding: 0 0 0 0;
     border-style: dotted;
     border-color: slateblue;
     border-width: thin;
@@ -59,9 +68,11 @@ body {
     width: 95%;
     height: 100%;
     margin: 10px 10px 10px 10px;
+    padding: 1px 1px 1px 1px;
 }
 
 #main .terminal:hover {
+    padding: 0 0 0 0;
     border-style: dotted;
     border-color: purple;
     border-width: thin;
@@ -69,11 +80,16 @@ body {
 
 #vanilla-terminal {
     width: 90vw;
-    padding-top: 10px;
     clear: both;
+    padding-top: 10px;
+}
+
+#vanilla-terminal .logView {
+    padding: 1px 1px 1px 1px;
 }
 
 #vanilla-terminal .logView:hover {
+    padding: 0 0 0 0;
     border-style: dotted;
     border-color: greenyellow;
     border-width: thin;
@@ -83,9 +99,11 @@ body {
     width: 95%;
     height: 100%;
     margin: 10px 10px 10px 10px;
+    padding: 1px 1px 1px 1px;
 }
 
 #vanilla-terminal .logView .terminal:hover {
+    padding: 0 0 0 0;
     border-style: dotted;
     border-color: purple;
     border-width: thin;
