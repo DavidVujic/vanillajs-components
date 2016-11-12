@@ -49,7 +49,7 @@ To step by step add tools & frameworks, that will solve current issues and impro
 
 Something like this:
 * :white_check_mark: a template engine [compare with vanilla code](https://github.com/DavidVujic/vanillajs-components/compare/with-template-engine)
-* AMD modules
+* :white_check_mark: AMD modules [compare](https://github.com/DavidVujic/vanillajs-components/compare/with-template-engine...with-amd-modules)
 * ES 2017 & transpiling with Babel
 * Webpack as a build system
 * React components with JSX
