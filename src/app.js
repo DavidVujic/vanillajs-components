@@ -1,4 +1,4 @@
-/*global events, Printer */
+/*global eventHelper, Printer */
 
 (function (navigation, logView, terminal, events, Printer) {
 
@@ -48,4 +48,4 @@
         });
     }
 
-}(vanilla.nav, vanilla.logView, vanilla.terminal, events, Printer));
+}(vanilla.nav, vanilla.logView, vanilla.terminal, eventHelper, Printer));

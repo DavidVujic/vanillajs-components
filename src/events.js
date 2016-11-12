@@ -1,4 +1,4 @@
-var events = (function () {
+var eventHelper = (function () {
 
     function on(type, nodes, actions) {
         var elements = Array.prototype.slice.call(nodes);
