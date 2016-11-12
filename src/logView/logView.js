@@ -4,7 +4,7 @@ vanilla.logView = (function (templates, terminal) {
 
     function create(data, done) {
 
-        templates.load('/src/logView/logView.html', function (el) {
+        templates.load('/src/logView/logView.html', null, function (el) {
 
             terminal.create(data, function (child) {
                 el.appendChild(child);

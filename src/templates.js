@@ -1,4 +1,6 @@
-var templates = (function () {
+/*global Mustache */
+
+var templates = (function (engine) {
     var savedTemplates = {};
 
     function getAbsolutePath() {
@@ -30,30 +32,30 @@ var templates = (function () {
         savedTemplates[path] = template;
     }
 
-    function getSavedTemplate(key) {
-        return toNode(savedTemplates[key]);
+    function getSavedTemplate(key, data) {
+        return toNode(savedTemplates[key], data);
     }
 
-    function toNode(template) {
+    function toNode(template, data) {
         var container = document.createElement('div');
-        container.innerHTML = template;
+        container.innerHTML = engine.render(template, data);
         return container.children[0];
     }
 
-    function loadTemplate(path, callback) {
+    function loadTemplate(path, data, callback) {
 
         if (savedTemplates.hasOwnProperty(path)) {
-            callback(getSavedTemplate(path));
+            callback(getSavedTemplate(path, data));
 
             return;
         }
 
         httpGet(path, function (template) {
             saveTemplate(path, template);
-            callback(getSavedTemplate(path));
+            callback(getSavedTemplate(path, data));
         });
     }
     return {
         load: loadTemplate
     };
-}());
+}(Mustache));

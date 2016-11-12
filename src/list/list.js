@@ -3,7 +3,7 @@
 vanilla.list = (function (templates, componentHelper, listItem) {
 
     function create(data, done) {
-        templates.load('/src/list/list.html', function (el) {
+        templates.load('/src/list/list.html', null, function (el) {
 
             componentHelper.each({
                 component: listItem,

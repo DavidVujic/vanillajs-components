@@ -27,11 +27,13 @@
 
     function loadMainView(e) {
         var container = document.querySelector('#main');
-        var data = 'vanilla components';
+        var data = {
+            text: 'vanilla components'
+        };
 
         if (e) {
             container.removeChild(container.firstChild);
-            data = e.target.textContent;
+            data.text = e.target.textContent;
         }
 
         terminal.create(data, function (el) {
@@ -40,7 +42,9 @@
     }
 
     function loadLogView() {
-        var data = 'events:';
+        var data = {
+            text: 'events:'
+        };
 
         logView.create(data, function (el) {
             printer.addTarget(el.querySelector('.cursor'));
