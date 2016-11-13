@@ -1,4 +1,4 @@
-define(['../lib/mustache.min.js'], function (engine) {
+define(['../lib/vendor/mustache.min.js'], function (engine) {
     var savedTemplates = {};
 
     function getAbsolutePath() {
