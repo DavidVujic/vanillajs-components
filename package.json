@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "deps:lib": "mkdir -p -v lib",
-    "deps:mustache": "npm run deps:lib && cp node_modules/mustache/mustache.min.js lib/mustache.min.js",
+    "deps:lib": "mkdir -p -v lib/vendor",
+    "deps:mustache": "npm run deps:lib && cp node_modules/mustache/mustache.min.js lib/vendor/mustache.min.js",
     "build": "npm run deps:mustache",
     "start": "npm run build && live-server",
     "lint": "eslint src"
