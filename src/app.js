@@ -5,7 +5,7 @@ define(['nav/nav', 'logView/logView', 'terminal/terminal', 'events', 'Printer'],
         loadLogView();
 
         function loadLeftMenu() {
-            var data = [
+            const data = [
                 'You',
                 'might',
                 '(not)',
@@ -22,8 +22,8 @@ define(['nav/nav', 'logView/logView', 'terminal/terminal', 'events', 'Printer'],
         }
 
         function loadMainView(e) {
-            var container = document.querySelector('#main');
-            var data = {
+            const container = document.querySelector('#main');
+            const data = {
                 text: 'vanilla components'
             };
 
@@ -38,7 +38,7 @@ define(['nav/nav', 'logView/logView', 'terminal/terminal', 'events', 'Printer'],
         }
 
         function loadLogView() {
-            var data = {
+            const data = {
                 text: 'events:'
             };
 

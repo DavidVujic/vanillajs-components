@@ -1,4 +1,8 @@
 {
+    "parserOptions": {
+        "ecmaVersion": "2017",
+        "sourceType": "module"
+    },
     "rules": {
         "eqeqeq": 2,
         "no-console": 0,
@@ -7,11 +11,12 @@
         "semi": [2, "always"],
         "no-unused-vars": 0
     },
-    "env": {
-        "browser": true
-    },
     "globals": {
         "define": true
+    },
+    "env": {
+        "es6": true,
+        "browser": true
     },
     "extends": "eslint:recommended"
 }
