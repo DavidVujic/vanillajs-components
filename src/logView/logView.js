@@ -1,19 +1,15 @@
-define(['templates', 'terminal/terminal'], function (templates, terminal) {
+import * as templates from 'templates';
+import * as terminal from 'terminal/terminal';
 
-    function create(data, done) {
-        templates.load('/src/logView/logView.html', null, function (el) {
+export function create(data, done) {
+    templates.load('/src/logView/logView.html', null, (el) => {
 
-            terminal.create(data, function (child) {
-                el.appendChild(child);
+        terminal.create(data, (child) => {
+            el.appendChild(child);
 
-                if (done) {
-                    done(el);
-                }
-            });
+            if (done) {
+                done(el);
+            }
         });
-    }
-
-    return {
-        create: create
-    };
-});
+    });
+}

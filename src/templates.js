@@ -1,59 +1,57 @@
-define(['../lib/vendor/mustache.min.js'], function (engine) {
-    var savedTemplates = {};
+import * as engine from '../lib/vendor/mustache.min.js';
 
-    function getAbsolutePath() {
-        return window.location.protocol + '//' + window.location.host + window.location.pathname;
-    }
+const savedTemplates = {};
 
-    function httpGet(path, onSuccess, onError) {
-        var request = new XMLHttpRequest();
-        var url = getAbsolutePath() + path;
+function getAbsolutePath() {
+    return `${window.location.protocol}//${window.location.host}${window.location.pathname}`;
+}
 
-        request.open('GET', url, true);
+function httpGet(path, onSuccess, onError) {
+    const request = new XMLHttpRequest();
+    const url = getAbsolutePath() + path;
 
-        request.onload = function () {
-            if (this.status >= 200 && this.status < 400) {
-                onSuccess(this.response);
-            } else {
-                onError('We reached our target server, but it returned an error');
-            }
-        };
+    request.open('GET', url, true);
 
-        request.onerror = function () {
-            onError('There was a connection error of some sort');
-        };
-
-        request.send();
-    }
-
-    function saveTemplate(path, template) {
-        savedTemplates[path] = template;
-    }
-
-    function getSavedTemplate(key, data) {
-        return toNode(savedTemplates[key], data);
-    }
-
-    function toNode(template, data) {
-        var container = document.createElement('div');
-        container.innerHTML = engine.render(template, data);
-        return container.children[0];
-    }
-
-    function loadTemplate(path, data, callback) {
-
-        if (savedTemplates.hasOwnProperty(path)) {
-            callback(getSavedTemplate(path, data));
-
-            return;
+    request.onload = function() {
+      // keep function keyword, because of 'this'
+        if (this.status >= 200 && this.status < 400) {
+            onSuccess(this.response);
+        } else {
+            onError('We reached our target server, but it returned an error');
         }
-
-        httpGet(path, function (template) {
-            saveTemplate(path, template);
-            callback(getSavedTemplate(path, data));
-        });
-    }
-    return {
-        load: loadTemplate
     };
-});
+
+    request.onerror = () => {
+        onError('There was a connection error of some sort');
+    };
+
+    request.send();
+}
+
+function saveTemplate(path, template) {
+    savedTemplates[path] = template;
+}
+
+function getSavedTemplate(key, data) {
+    return toNode(savedTemplates[key], data);
+}
+
+function toNode(template, data) {
+    const container = document.createElement('div');
+    container.innerHTML = engine.render(template, data);
+    return container.children[0];
+}
+
+export function load(path, data, callback) {
+
+    if (savedTemplates.hasOwnProperty(path)) {
+        callback(getSavedTemplate(path, data));
+
+        return;
+    }
+
+    httpGet(path, function(template) {
+        saveTemplate(path, template);
+        callback(getSavedTemplate(path, data));
+    });
+}

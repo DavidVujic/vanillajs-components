@@ -1,19 +1,14 @@
-define(['templates'], function (templates) {
+import * as templates from 'templates';
 
-    function create(data, done) {
-        var templateData = {
-            title: 'the listItem component',
-            text: data
-        };
-
-        templates.load('/src/listItem/listItem.html', templateData, function (el) {
-            if (done) {
-                done(el);
-            }
-        });
-    }
-
-    return {
-        create: create
+export function create(data, done) {
+    const templateData = {
+        title: 'the listItem component',
+        text: data
     };
-});
+
+    templates.load('/src/listItem/listItem.html', templateData, (el) => {
+        if (done) {
+            done(el);
+        }
+    });
+}

@@ -1,14 +1,9 @@
-define(['templates'], function (templates) {
+import * as templates from 'templates';
 
-    function create(data, done) {
-        templates.load('/src/terminal/terminal.html', data, function (el) {
-            if (done) {
-                done(el);
-            }
-        });
-    }
-
-    return {
-        create: create
-    };
-});
+export function create(data, done) {
+    templates.load('/src/terminal/terminal.html', data, (el) => {
+        if (done) {
+            done(el);
+        }
+    });
+}

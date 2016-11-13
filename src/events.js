@@ -1,15 +1,9 @@
-define(function () {
-    function on(type, nodes, actions) {
-        var elements = Array.prototype.slice.call(nodes);
+export function on(type, nodes, actions) {
+    const elements = Array.prototype.slice.call(nodes);
 
-        elements.forEach(function (el) {
-            actions.forEach(function (action) {
-                el.addEventListener(type, action);
-            });
+    elements.forEach((el) => {
+        actions.forEach(function(action) {
+            el.addEventListener(type, action);
         });
-    }
-
-    return {
-        on: on
-    };
-});
+    });
+}

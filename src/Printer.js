@@ -1,39 +1,29 @@
-define(function () {
-    var elements = [];
+const elements = [];
 
-    function printText(text) {
-        elements.forEach(function (element) {
-            element.innerHTML += '<br/>' + text;
-        });
-    }
+function printText(text) {
+    elements.forEach((element) => element.innerHTML += '<br/>' + text);
+}
 
-    function printEvent(e) {
-        var message = e.type + ' : ' + e.target.nodeName + ' : ' + e.target.innerHTML;
+function printEvent(e) {
+    const message = `${e.type} : ${e.target.nodeName} : ${e.target.innerHTML}`;
+    printText(message);
+}
+
+function addTarget(el) {
+    elements.push(el);
+}
+
+function print(message) {
+    if (typeof(message) === 'string') {
         printText(message);
+        return;
     }
 
-    function addTarget(el) {
-        elements.push(el);
-    }
+    printEvent(message);
+}
 
-    function print(message) {
-        if (typeof (message) === 'string') {
-            printText(message);
-            return;
-        }
+function clear() {
+    elements.forEach((element) => element.innerHTML = '');
+}
 
-        printEvent(message);
-    }
-
-    function clear() {
-        elements.forEach(function (element) {
-            element.innerHTML = '';
-        });
-    }
-
-    return {
-        addTarget: addTarget,
-        print: print,
-        clear: clear
-    };
-});
+export {addTarget, print, clear};
