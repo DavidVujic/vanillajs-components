@@ -7,6 +7,7 @@
     "deps:lib": "mkdir -p -v lib",
     "deps:requirejs": "npm run deps:lib && cp node_modules/requirejs/require.js lib/requirejs.js",
     "deps:mustache": "npm run deps:lib && cp node_modules/mustache/mustache.min.js lib/mustache.min.js",
+    "transpile": "babel src --out-dir lib --source-maps",
     "build": "npm run deps:requirejs && npm run deps:mustache",
     "start": "npm run build && live-server",
     "lint": "eslint src"
@@ -22,6 +23,9 @@
   },
   "homepage": "https://github.com/DavidVujic/vanillajs-components#readme",
   "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-plugin-transform-es2015-modules-amd": "^6.18.0",
+    "babel-preset-latest": "^6.16.0",
     "eslint": "^3.10.0",
     "live-server": "^1.1.0"
   },
