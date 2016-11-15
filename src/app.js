@@ -1,7 +1,7 @@
 import * as navigation from 'nav/nav';
 import * as logView from 'logView/logView';
 import * as terminal from 'terminal/terminal';
-import * as events from 'events';
+import on from 'events';
 import * as printer from 'Printer';
 
 loadLeftMenu();
@@ -20,7 +20,7 @@ function loadLeftMenu() {
     ];
 
     navigation.create(data, (el) => {
-        events.on('click', el.querySelectorAll('li'), [printer.print, loadMainView]);
+        on('click', el.querySelectorAll('li'), [printer.print, loadMainView]);
         document.querySelector('#left-menu').appendChild(el);
     });
 }

@@ -1,4 +1,4 @@
-function add(obj) {
+export function add(obj) {
     obj.component.create(obj.data, function(el) {
         obj.container.appendChild(el);
 
@@ -8,7 +8,7 @@ function add(obj) {
     });
 }
 
-function each(obj) {
+export function each(obj) {
     function onAdded(added) {
         obj.index++;
 
@@ -32,5 +32,3 @@ function each(obj) {
         callback: onAdded
     });
 }
-
-export {add, each};

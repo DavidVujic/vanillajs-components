@@ -13,7 +13,7 @@ function httpGet(path, onSuccess, onError) {
     request.open('GET', url, true);
 
     request.onload = function() {
-      // keep function keyword, because of 'this'
+        // keep function keyword, because of 'this'
         if (this.status >= 200 && this.status < 400) {
             onSuccess(this.response);
         } else {
@@ -42,7 +42,7 @@ function toNode(template, data) {
     return container.children[0];
 }
 
-export function load(path, data, callback) {
+function load(path, data, callback) {
 
     if (savedTemplates.hasOwnProperty(path)) {
         callback(getSavedTemplate(path, data));
@@ -55,3 +55,5 @@ export function load(path, data, callback) {
         callback(getSavedTemplate(path, data));
     });
 }
+
+export default load;

@@ -1,11 +1,11 @@
-import * as templates from 'templates';
-import * as componentHelper from 'components';
+import load from 'templates';
+import {each} from 'components';
 import * as listItem from 'listItem/listItem';
 
 export function create(data, done) {
-    templates.load('/src/list/list.html', null, (el) => {
+    load('/src/list/list.html', null, (el) => {
 
-        componentHelper.each({
+        each({
             component: listItem,
             data: data,
             container: el.querySelector('ul'),

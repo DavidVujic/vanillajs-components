@@ -1,4 +1,4 @@
-import * as templates from 'templates';
+import load from 'templates';
 
 export function create(data, done) {
     const templateData = {
@@ -6,7 +6,7 @@ export function create(data, done) {
         text: data
     };
 
-    templates.load('/src/listItem/listItem.html', templateData, (el) => {
+    load('/src/listItem/listItem.html', templateData, (el) => {
         if (done) {
             done(el);
         }

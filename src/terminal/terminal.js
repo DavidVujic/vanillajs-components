@@ -1,7 +1,7 @@
-import * as templates from 'templates';
+import load from 'templates';
 
 export function create(data, done) {
-    templates.load('/src/terminal/terminal.html', data, (el) => {
+    load('/src/terminal/terminal.html', data, (el) => {
         if (done) {
             done(el);
         }

@@ -1,4 +1,4 @@
-export function on(type, nodes, actions) {
+function on(type, nodes, actions) {
     const elements = Array.prototype.slice.call(nodes);
 
     elements.forEach((el) => {
@@ -7,3 +7,5 @@ export function on(type, nodes, actions) {
         });
     });
 }
+
+export default on;
