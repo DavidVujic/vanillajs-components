@@ -9,9 +9,9 @@
     "deps:mustache": "cp node_modules/mustache/mustache.min.js lib/vendor/mustache.min.js",
     "deps": "npm run deps:lib && npm run deps:requirejs && npm run deps:mustache",
     "transpile": "babel src --out-dir lib --source-maps",
-    "build": "npm run transpile && npm run deps",
-    "start": "npm run build && live-server",
-    "lint": "eslint src"
+    "lint": "eslint src",
+    "build": "npm run lint && npm run transpile && npm run deps",
+    "start": "npm run build && live-server"
   },
   "repository": {
     "type": "git",
