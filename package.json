@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "bundle": "node node_modules/.bin/r.js -o baseUrl=lib name=main out=lib/bundle/main.js",
     "deps:lib": "mkdir -p -v lib/vendor",
     "deps:requirejs": "cp node_modules/requirejs/require.js lib/vendor/requirejs.js",
     "deps:mustache": "cp node_modules/mustache/mustache.min.js lib/vendor/mustache.min.js",
@@ -11,7 +12,7 @@
     "deps": "npm run deps:lib && npm run deps:requirejs && npm run deps:mustache && npm run deps:polyfill",
     "transpile": "babel src --out-dir lib --source-maps",
     "lint": "eslint src",
-    "build": "npm run lint && npm run transpile && npm run deps",
+    "build": "npm run lint && npm run transpile && npm run deps && npm run bundle",
     "start": "npm run build && live-server"
   },
   "repository": {
