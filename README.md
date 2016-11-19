@@ -6,7 +6,7 @@ In this repo, you will find examples on how to create a web site with reusable b
 ### But why? ###
 I want to understand the problems that are solved using React, and I guess one way is to experience it the hard way - to feel the pain - by writing code with plain old vanilla JavaScript, html and css.
 
-The source code in this repo is written with Old School vanilla JavaScript, without any frameworks, without a build system and without a transpiler.
+The source code in the main branch of this repo is written with Old School vanilla JavaScript, without any frameworks, without a build system and without a transpiler.
 
 ## Examples ##
 The listItem.js component
@@ -51,7 +51,7 @@ Clone this repo and experiment with the code! To start the example web page, run
 npm install
 npm start
 ````
-When switching between the branches (see below), you might need to run the _npm install_ command again (because of the different dependencies used).
+When switching between the branches (see below), you might need to run the __npm install__ command again (because of the different dependencies used).
 
 ### What next? ###
 To step by step add tools & frameworks, that will solve current issues and improve the quality & readability of the code base.
@@ -59,7 +59,7 @@ To step by step add tools & frameworks, that will solve current issues and impro
 Something like this:
 * :white_check_mark: a template engine [compare with vanilla code](https://github.com/DavidVujic/vanillajs-components/compare/with-template-engine)
 * :white_check_mark: AMD modules [compare](https://github.com/DavidVujic/vanillajs-components/compare/with-template-engine...with-amd-modules)
-* :white_check_mark: ES 2017 & transpiling with Babel [compare](https://github.com/DavidVujic/vanillajs-components/compare/with-amd-modules...with-es2017) (with AMD modules)
+* :white_check_mark: ES 2017 & transpiling with Babel [compare](https://github.com/DavidVujic/vanillajs-components/compare/with-amd-modules...with-es2017)
 * :white_check_mark: Minification and bundling [compare](https://github.com/DavidVujic/vanillajs-components/compare/with-es2017...with-bundling)
 * :white_check_mark: Webpack (almost) all the things [compare](https://github.com/DavidVujic/vanillajs-components/compare/with-bundling...with-webpack)
 * React components with JSX
