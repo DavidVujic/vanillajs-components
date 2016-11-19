@@ -1,6 +1,5 @@
-Vanilla Components
+You might (not) need a JavaScript framework
 ==
-#### _You might (not) need a JavaScript framework_ ####
 In this repo, you will find examples on how to create a web site with reusable building blocks (aka components). When learning about React and components, I started thinking about how this could be done without using React, ES 2016, Webpack or any other framework out there. Is it possible? I think so.
 
 ### But why? ###
