@@ -52,6 +52,6 @@ Something like this:
 * :white_check_mark: AMD modules [compare](https://github.com/DavidVujic/vanillajs-components/compare/with-template-engine...with-amd-modules)
 * :white_check_mark: ES 2017 & transpiling with Babel [compare](https://github.com/DavidVujic/vanillajs-components/compare/with-amd-modules...with-es2017) (with AMD modules)
 * :white_check_mark: Minification and bundling [compare](https://github.com/DavidVujic/vanillajs-components/compare/with-es2017...with-bundling)
-* Webpack as a build system
+* :white_check_mark: Webpack (almost) all the things [compare](https://github.com/DavidVujic/vanillajs-components/compare/with-bundling...with-webpack)
 * React components with JSX
 * Redux?
