@@ -1,2 +1,2 @@
-import '../lib/vendor/babel-polyfill.min.js';
+import 'babel-polyfill';
 import 'app';

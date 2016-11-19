@@ -1,4 +1,4 @@
-import * as engine from '../lib/vendor/mustache.min.js';
+import * as engine from 'mustache';
 
 const savedTemplates = {};
 
