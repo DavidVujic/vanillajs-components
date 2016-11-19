@@ -44,6 +44,15 @@ The listItem.html template
 #### An example web page with vanilla components: ####
 https://davidvujic.github.io/vanillajs-components/
 
+
+### Setup ###
+Clone this repo and experiment with the code! To start the example web page, run these commands:
+````
+npm install
+npm start
+````
+When switching between the branches (see below), you might need to run the _npm install_ command again (because of the different dependencies used).
+
 ### What next? ###
 To step by step add tools & frameworks, that will solve current issues and improve the quality & readability of the code base.
 
