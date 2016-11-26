@@ -1,6 +1,6 @@
 define(['templates'], function (templates) {
 
-    function create(data, done) {
+    function render(data, done) {
         templates.load('/src/terminal/terminal.html', data, function (el) {
             if (done) {
                 done(el);
@@ -9,6 +9,6 @@ define(['templates'], function (templates) {
     }
 
     return {
-        create: create
+        render: render
     };
 });

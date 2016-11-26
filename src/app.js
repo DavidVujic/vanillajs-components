@@ -15,7 +15,7 @@ define(['nav/nav', 'logView/logView', 'terminal/terminal', 'events', 'Printer'],
                 'framework'
             ];
 
-            navigation.create(data, function (el) {
+            navigation.render(data, function (el) {
                 events.on('click', el.querySelectorAll('li'), [printer.print, loadMainView]);
                 document.querySelector('#left-menu').appendChild(el);
             });
@@ -32,7 +32,7 @@ define(['nav/nav', 'logView/logView', 'terminal/terminal', 'events', 'Printer'],
                 data.text = e.target.textContent;
             }
 
-            terminal.create(data, function (el) {
+            terminal.render(data, function (el) {
                 container.appendChild(el);
             });
         }
@@ -42,7 +42,7 @@ define(['nav/nav', 'logView/logView', 'terminal/terminal', 'events', 'Printer'],
                 text: 'events:'
             };
 
-            logView.create(data, function (el) {
+            logView.render(data, function (el) {
 
                 printer.addTarget(el.querySelector('.cursor'));
                 document.querySelector('#vanilla-terminal').appendChild(el);

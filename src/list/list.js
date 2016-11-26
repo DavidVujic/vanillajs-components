@@ -1,6 +1,6 @@
 define(['templates', 'components', 'listItem/listItem'], function (templates, componentHelper, listItem) {
 
-    function create(data, done) {
+    function render(data, done) {
         templates.load('/src/list/list.html', null, function (el) {
 
             componentHelper.each({
@@ -17,6 +17,6 @@ define(['templates', 'components', 'listItem/listItem'], function (templates, co
     }
 
     return {
-        create: create
+        render: render
     };
 });
