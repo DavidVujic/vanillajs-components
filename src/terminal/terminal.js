@@ -2,7 +2,7 @@
 
 vanilla.terminal = (function (templates) {
 
-    function create(data, done) {
+    function render(data, done) {
         templates.load('/src/terminal/terminal.html', function (el) {
             el.querySelector('.cursor').innerHTML = data;
 
@@ -13,7 +13,7 @@ vanilla.terminal = (function (templates) {
     }
 
     return {
-        create: create
+        render: render
     };
 
 }(templates));

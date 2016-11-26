@@ -2,7 +2,7 @@
 
 vanilla.listItem = (function (templates) {
 
-    function create(data, done) {
+    function render(data, done) {
         templates.load('/src/listItem/listItem.html', function (el) {
             el.textContent = data;
 
@@ -13,7 +13,7 @@ vanilla.listItem = (function (templates) {
     }
 
     return {
-        create: create
+        render: render
     };
 
 }(templates));

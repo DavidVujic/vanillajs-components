@@ -1,7 +1,7 @@
 var components = (function () {
 
     function add(obj) {
-        obj.component.create(obj.data, function (el) {
+        obj.component.render(obj.data, function (el) {
             obj.container.appendChild(el);
 
             if (obj.callback) {

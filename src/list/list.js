@@ -2,7 +2,7 @@
 
 vanilla.list = (function (templates, componentHelper, listItem) {
 
-    function create(data, done) {
+    function render(data, done) {
         templates.load('/src/list/list.html', function (el) {
 
             componentHelper.each({
@@ -19,7 +19,7 @@ vanilla.list = (function (templates, componentHelper, listItem) {
     }
 
     return {
-        create: create
+        render: render
     };
 
 }(templates, components, vanilla.listItem));
