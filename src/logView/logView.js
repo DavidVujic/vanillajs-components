@@ -1,10 +1,10 @@
 import load from 'templates';
 import * as terminal from 'terminal/terminal';
 
-export function create(data, done) {
+export function render(data, done) {
     load('/src/logView/logView.html', null, (el) => {
 
-        terminal.create(data, (child) => {
+        terminal.render(data, (child) => {
             el.appendChild(child);
 
             if (done) {
