@@ -1,6 +1,6 @@
 import load from 'templates';
 
-export function create(data, done) {
+export function render(data, done) {
     const templateData = {
         title: 'the listItem component',
         text: data

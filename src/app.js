@@ -19,7 +19,7 @@ function loadLeftMenu() {
         'framework'
     ];
 
-    navigation.create(data, (el) => {
+    navigation.render(data, (el) => {
         on('click', el.querySelectorAll('li'), [printer.print, loadMainView]);
         document.querySelector('#left-menu').appendChild(el);
     });
@@ -36,7 +36,7 @@ function loadMainView(e) {
         data.text = e.target.textContent;
     }
 
-    terminal.create(data, (el) => container.appendChild(el));
+    terminal.render(data, (el) => container.appendChild(el));
 }
 
 function loadLogView() {
@@ -44,7 +44,7 @@ function loadLogView() {
         text: 'events:'
     };
 
-    logView.create(data, (el) => {
+    logView.render(data, (el) => {
         printer.addTarget(el.querySelector('.cursor'));
         document.querySelector('#vanilla-terminal').appendChild(el);
     });
