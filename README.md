@@ -10,11 +10,10 @@ The source code in the main branch of this repo is written with __Old School van
 ## Examples ##
 The listItem.js component
 ````javascript
-// the listItem component
 vanilla.listItem = (function (templates) {
 
     // load the html, insert data, pass the node to be rendered to the DOM
-    function create(data, done) {
+    function render(data, done) {
         // load the html async, using a helper module
         templates.load('/src/listItem/listItem.html', function (el) {
             // insert data
@@ -28,7 +27,7 @@ vanilla.listItem = (function (templates) {
     }
 
     return {
-        create: create
+        render: render
     };
 
 }(templates));
