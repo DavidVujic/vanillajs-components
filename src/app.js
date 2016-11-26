@@ -19,7 +19,7 @@
             'framework'
         ];
 
-        navigation.create(data, function (el) {
+        navigation.render(data, function (el) {
             events.on('click', el.querySelectorAll('li'), [printer.print, loadMainView]);
             document.querySelector('#left-menu').appendChild(el);
         });
@@ -36,7 +36,7 @@
             data.text = e.target.textContent;
         }
 
-        terminal.create(data, function (el) {
+        terminal.render(data, function (el) {
             container.appendChild(el);
         });
     }
@@ -46,7 +46,7 @@
             text: 'events:'
         };
 
-        logView.create(data, function (el) {
+        logView.render(data, function (el) {
             printer.addTarget(el.querySelector('.cursor'));
             document.querySelector('#vanilla-terminal').appendChild(el);
         });

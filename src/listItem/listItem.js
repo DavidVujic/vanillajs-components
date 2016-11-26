@@ -2,7 +2,7 @@
 
 vanilla.listItem = (function (templates) {
 
-    function create(data, done) {
+    function render(data, done) {
         var templateData = {
             title: 'the listItem component',
             text: data
@@ -16,7 +16,7 @@ vanilla.listItem = (function (templates) {
     }
 
     return {
-        create: create
+        render: render
     };
 
 }(templates));

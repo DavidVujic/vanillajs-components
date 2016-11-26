@@ -2,11 +2,11 @@
 
 vanilla.logView = (function (templates, terminal) {
 
-    function create(data, done) {
+    function render(data, done) {
 
         templates.load('/src/logView/logView.html', null, function (el) {
 
-            terminal.create(data, function (child) {
+            terminal.render(data, function (child) {
                 el.appendChild(child);
 
                 if (done) {
@@ -18,7 +18,7 @@ vanilla.logView = (function (templates, terminal) {
     }
 
     return {
-        create: create
+        render: render
     };
 
 }(templates, vanilla.terminal));
