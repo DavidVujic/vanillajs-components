@@ -2,7 +2,7 @@ import load from 'templates';
 import {each} from 'components';
 import * as listItem from 'listItem/listItem';
 
-export function create(data, done) {
+export function render(data, done) {
     load('/src/list/list.html', null, (el) => {
 
         each({
