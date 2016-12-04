@@ -26,6 +26,7 @@
     "babel-preset-latest": "^6.16.0",
     "babel-preset-react": "^6.16.0",
     "eslint": "^3.10.0",
+    "eslint-plugin-react": "^6.7.1",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"
   },

@@ -1,3 +1,6 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 import * as navigation from 'nav/nav';
 import * as logView from 'logView/logView';
 import * as terminal from 'terminal/terminal';
@@ -21,7 +24,8 @@ function loadLeftMenu() {
 
     navigation.render(data, (el) => {
         on('click', el.querySelectorAll('li'), [printer.print, loadMainView]);
-        document.querySelector('#left-menu').appendChild(el);
+
+        ReactDOM.render(<h1>hello react</h1>, document.querySelector('#left-menu'));
     });
 }
 
