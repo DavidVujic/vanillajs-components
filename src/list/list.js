@@ -1,19 +1,12 @@
-import load from 'templates';
-import {each} from 'components';
-import * as listItem from 'listItem/listItem';
+import React from 'react';
+import ListItem from 'listItem/listItem';
 
-export function render(data, done) {
-    load('/src/list/list.html', null, (el) => {
-
-        each({
-            component: listItem,
-            data: data,
-            container: el.querySelector('ul'),
-            callback: (res) => {
-                if (res.done) {
-                    done(el);
-                }
-            }
-        });
-    });
+function List(props) {
+    return <section className='list' title='The list component'>
+        <ul>
+            {props.data.map((item) => <ListItem data={item} action={props.action}/>)}
+        </ul>
+    </section>;
 }
+
+export default List;

@@ -9,7 +9,8 @@
         "quotes": [2, "single"],
         "linebreak-style": [2, "unix"],
         "semi": [2, "always"],
-        "no-unused-vars": 0
+        "no-unused-vars": 0,
+        "react/prop-types": 0 
     },
     "globals": {
         "define": true

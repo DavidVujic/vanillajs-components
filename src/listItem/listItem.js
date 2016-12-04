@@ -1,14 +1,7 @@
-import load from 'templates';
+import React from 'react';
 
-export function render(data, done) {
-    const templateData = {
-        title: 'the listItem component',
-        text: data
-    };
-
-    load('/src/listItem/listItem.html', templateData, (el) => {
-        if (done) {
-            done(el);
-        }
-    });
+function ListItem(props) {
+    return <li className='listItem' title='the listItem component' onClick={props.action}>{props.data}</li>;
 }
+
+export default ListItem;

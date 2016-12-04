@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import * as navigation from 'nav/nav';
+import Nav from 'nav/nav';
 import * as logView from 'logView/logView';
 import * as terminal from 'terminal/terminal';
 import on from 'events';
@@ -12,6 +12,10 @@ loadMainView();
 loadLogView();
 
 function loadLeftMenu() {
+    function action(e) {
+        printer.print(e);
+        loadMainView(e);
+    }
     const data = [
         'You',
         'might',
@@ -22,11 +26,8 @@ function loadLeftMenu() {
         'framework'
     ];
 
-    navigation.render(data, (el) => {
-        on('click', el.querySelectorAll('li'), [printer.print, loadMainView]);
-
-        ReactDOM.render(<h1>hello react</h1>, document.querySelector('#left-menu'));
-    });
+    ReactDOM.render(
+        <Nav data={data} action={action}/>, document.querySelector('#left-menu'));
 }
 
 function loadMainView(e) {

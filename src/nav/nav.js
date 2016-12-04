@@ -1,16 +1,8 @@
-import load from 'templates';
-import * as list from 'list/list';
+import React from 'react';
+import List from 'list/list';
 
-export function render(data, done) {
-    load('/src/nav/nav.html', null, (el) => {
-
-        list.render(data, (child) => {
-            el.appendChild(child);
-
-            if (done) {
-                done(el);
-            }
-        });
-        
-    });
+function Nav(props) {
+    return <List data={props.data} action={props.action}/>;
 }
+
+export default Nav;
