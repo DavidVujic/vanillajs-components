@@ -2,10 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import Nav from 'nav/nav';
-import * as logView from 'logView/logView';
-import * as terminal from 'terminal/terminal';
-import on from 'events';
-import * as printer from 'Printer';
+import Terminal from 'terminal/terminal';
+import LogView from 'logView/logView';
 
 loadLeftMenu();
 loadMainView();
@@ -13,8 +11,8 @@ loadLogView();
 
 function loadLeftMenu() {
     function action(e) {
-        printer.print(e);
         loadMainView(e);
+        loadLogView(e);
     }
     const data = [
         'You',
@@ -31,26 +29,19 @@ function loadLeftMenu() {
 }
 
 function loadMainView(e) {
-    const container = document.querySelector('#main');
-    const data = {
-        text: 'vanilla components'
-    };
+    const text = (e
+        ? e.target.textContent
+        : 'vanilla components');
 
-    if (e) {
-        container.removeChild(container.firstChild);
-        data.text = e.target.textContent;
-    }
-
-    terminal.render(data, (el) => container.appendChild(el));
+    ReactDOM.render(
+        <Terminal text={text}/>, document.querySelector('#main'));
 }
 
-function loadLogView() {
-    const data = {
-        text: 'events:'
-    };
+function loadLogView(e) {
+    const text = (e
+        ? `${e.type} : ${e.target.nodeName} : ${e.target.innerHTML}`
+        : 'events:');
 
-    logView.render(data, (el) => {
-        printer.addTarget(el.querySelector('.cursor'));
-        document.querySelector('#vanilla-terminal').appendChild(el);
-    });
+    ReactDOM.render(
+        <LogView text={text}/>, document.querySelector('#vanilla-terminal'));
 }

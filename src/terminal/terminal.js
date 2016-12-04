@@ -1,9 +1,9 @@
-import load from 'templates';
+import React from 'react';
 
-export function render(data, done) {
-    load('/src/terminal/terminal.html', data, (el) => {
-        if (done) {
-            done(el);
-        }
-    });
+function Terminal(props) {
+    return <figure className='terminal' title='the terminal component'>
+        <span className='cursor'>{props.text}</span>
+    </figure>;
 }
+
+export default Terminal;

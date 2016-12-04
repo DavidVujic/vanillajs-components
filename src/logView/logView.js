@@ -1,15 +1,27 @@
-import load from 'templates';
-import * as terminal from 'terminal/terminal';
+import React from 'react';
+import Terminal from 'terminal/terminal';
 
-export function render(data, done) {
-    load('/src/logView/logView.html', null, (el) => {
-
-        terminal.render(data, (child) => {
-            el.appendChild(child);
-
-            if (done) {
-                done(el);
-            }
+class LogView extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = ({
+            list: [props.text]
         });
-    });
+    }
+
+    componentWillReceiveProps(nextProps) {
+        const copy = this.state.list.slice();
+        copy.push(nextProps.text);
+        this.setState({list: copy});
+    }
+
+    render() {
+        return <figure className='logView' title='The logView component'>
+            {this.state.list.map((text) => {
+                return <Terminal text={text}/>;
+            })}
+        </figure>;
+    }
 }
+
+export default LogView;
