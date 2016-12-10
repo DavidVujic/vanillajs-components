@@ -2,7 +2,8 @@ import * as navigation from 'nav/nav';
 import * as logView from 'logView/logView';
 import * as terminal from 'terminal/terminal';
 import on from 'events';
-import * as printer from 'Printer';
+
+var printTargets = [];
 
 loadLeftMenu();
 loadMainView();
@@ -20,7 +21,7 @@ function loadLeftMenu() {
     ];
 
     navigation.render(data, (el) => {
-        on('click', el.querySelectorAll('li'), [printer.print, loadMainView]);
+        on('click', el.querySelectorAll('li'), [print, loadMainView]);
         document.querySelector('#left-menu').appendChild(el);
     });
 }
@@ -45,7 +46,15 @@ function loadLogView() {
     };
 
     logView.render(data, (el) => {
-        printer.addTarget(el.querySelector('.cursor'));
+        printTargets.push(el.querySelector('.cursor'));
         document.querySelector('#vanilla-terminal').appendChild(el);
+    });
+}
+
+function print(e) {
+    var message = e.type + ' : ' + e.target.nodeName + ' : ' + e.target.innerHTML;
+
+    printTargets.forEach(function(element) {
+        element.innerHTML += '<br/>' + message;
     });
 }
