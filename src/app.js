@@ -1,8 +1,8 @@
-/*global eventHelper, Printer */
+/*global eventHelper */
 
-(function (navigation, logView, terminal, events, Printer) {
+(function (navigation, logView, terminal, events) {
 
-    var printer = Printer();
+    var printTargets = [];
 
     loadLeftMenu();
     loadMainView();
@@ -20,7 +20,7 @@
         ];
 
         navigation.render(data, function (el) {
-            events.on('click', el.querySelectorAll('li'), [printer.print, loadMainView]);
+            events.on('click', el.querySelectorAll('li'), [print, loadMainView]);
             document.querySelector('#left-menu').appendChild(el);
         });
     }
@@ -47,9 +47,17 @@
         };
 
         logView.render(data, function (el) {
-            printer.addTarget(el.querySelector('.cursor'));
+            printTargets.push(el.querySelector('.cursor'));
             document.querySelector('#vanilla-terminal').appendChild(el);
         });
     }
 
-}(vanilla.nav, vanilla.logView, vanilla.terminal, eventHelper, Printer));
+    function print(e) {
+        var message = e.type + ' : ' + e.target.nodeName + ' : ' + e.target.innerHTML;
+
+        printTargets.forEach(function (element) {
+            element.innerHTML += '<br/>' + message;
+        });
+    }
+
+}(vanilla.nav, vanilla.logView, vanilla.terminal, eventHelper));
