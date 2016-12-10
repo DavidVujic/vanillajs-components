@@ -5,43 +5,47 @@ import Nav from 'nav/nav';
 import Terminal from 'terminal/terminal';
 import LogView from 'logView/logView';
 
-loadLeftMenu();
-loadMainView();
-loadLogView();
+class App extends React.Component {
+    constructor(props) {
+        super(props);
 
-function loadLeftMenu() {
-    function action(e) {
-        loadMainView(e);
-        loadLogView(e);
+        this.state = ({
+            navData: [
+                'You',
+                'might',
+                '(not)',
+                'need',
+                'a',
+                'JavaScript',
+                'framework'
+            ],
+            logMessages: ['events:'],
+            mainText: 'vanilla components'
+        });
+
+        this.action = this.action.bind(this);
     }
-    const data = [
-        'You',
-        'might',
-        '(not)',
-        'need',
-        'a',
-        'JavaScript',
-        'framework'
-    ];
 
-    ReactDOM.render(
-        <Nav data={data} action={action}/>, document.querySelector('#left-menu'));
+    action(e) {
+        const messages = this.state.logMessages.slice();
+        messages.push(`${e.type} : ${e.target.nodeName} : ${e.target.innerHTML}`);
+
+        this.setState({mainText: e.target.textContent, logMessages: messages});
+    }
+
+    render() {
+        return <section>
+            <section id="left-menu">
+                <Nav data={this.state.navData} action={this.action}/>
+            </section>
+            <section id="main">
+                <Terminal text={this.state.mainText}/>
+            </section>
+            <section id="vanilla-terminal">
+                <LogView logs={this.state.logMessages}/>
+            </section>
+        </section>;
+    }
 }
 
-function loadMainView(e) {
-    const text = (e
-        ? e.target.textContent
-        : 'vanilla components');
-
-    ReactDOM.render(
-        <Terminal text={text}/>, document.querySelector('#main'));
-}
-
-function loadLogView(e) {
-    const text = (e
-        ? `${e.type} : ${e.target.nodeName} : ${e.target.innerHTML}`
-        : 'events:');
-
-    ReactDOM.render(
-        <LogView text={text}/>, document.querySelector('#vanilla-terminal'));
-}
+export default App;
