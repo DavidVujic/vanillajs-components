@@ -5,8 +5,6 @@ import Nav from 'nav/nav';
 import Terminal from 'terminal/terminal';
 import LogView from 'logView/logView';
 
-var printTargets = [];
-
 loadLeftMenu();
 loadMainView();
 loadLogView();
