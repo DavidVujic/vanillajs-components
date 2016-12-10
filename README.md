@@ -60,5 +60,5 @@ Something like this (each one in a separate branch):
 * :white_check_mark: ES 2017 & transpiling with Babel [compare](https://github.com/DavidVujic/vanillajs-components/compare/with-amd-modules...with-es2017)
 * :white_check_mark: Minification and bundling [compare](https://github.com/DavidVujic/vanillajs-components/compare/with-es2017...with-bundling)
 * :white_check_mark: Webpack (almost) all the things [compare](https://github.com/DavidVujic/vanillajs-components/compare/with-bundling...with-webpack)
-* React components with JSX
+* :tractor: React components with JSX [compare](https://github.com/DavidVujic/vanillajs-components/compare/with-webpack...with-react)
 * Redux?
