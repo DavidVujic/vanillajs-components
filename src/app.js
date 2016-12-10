@@ -1,5 +1,7 @@
-define(['nav/nav', 'logView/logView', 'terminal/terminal', 'events', 'Printer'],
-    function (navigation, logView, terminal, events, printer) {
+define(['nav/nav', 'logView/logView', 'terminal/terminal', 'events'],
+    function (navigation, logView, terminal, events) {
+        var printTargets = [];
+
         loadLeftMenu();
         loadMainView();
         loadLogView();
@@ -16,7 +18,7 @@ define(['nav/nav', 'logView/logView', 'terminal/terminal', 'events', 'Printer'],
             ];
 
             navigation.render(data, function (el) {
-                events.on('click', el.querySelectorAll('li'), [printer.print, loadMainView]);
+                events.on('click', el.querySelectorAll('li'), [print, loadMainView]);
                 document.querySelector('#left-menu').appendChild(el);
             });
         }
@@ -43,9 +45,16 @@ define(['nav/nav', 'logView/logView', 'terminal/terminal', 'events', 'Printer'],
             };
 
             logView.render(data, function (el) {
-
-                printer.addTarget(el.querySelector('.cursor'));
+                printTargets.push(el.querySelector('.cursor'));
                 document.querySelector('#vanilla-terminal').appendChild(el);
+            });
+        }
+
+        function print(e) {
+            var message = e.type + ' : ' + e.target.nodeName + ' : ' + e.target.innerHTML;
+
+            printTargets.forEach(function (element) {
+                element.innerHTML += '<br/>' + message;
             });
         }
     }
