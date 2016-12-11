@@ -2,10 +2,10 @@
 
 vanilla.nav = (function (templates, list) {
 
-    function render(data, done) {
+    function render(props, done) {
         templates.load('/src/nav/nav.html', function (el) {
 
-            list.render(data, function (child) {
+            list.render(props, function (child) {
                 el.appendChild(child);
 
                 if (done) {

@@ -1,6 +1,4 @@
-/*global eventHelper */
-
-(function (navigation, logView, terminal, events) {
+(function (navigation, logView, terminal) {
 
     var printTargets = [];
 
@@ -9,18 +7,23 @@
     loadLogView();
 
     function loadLeftMenu() {
-        var data = [
-            'You',
-            'might',
-            '(not)',
-            'need',
-            'a',
-            'JavaScript',
-            'framework'
-        ];
+        var props = {
+            data: [
+                'You',
+                'might',
+                '(not)',
+                'need',
+                'a',
+                'JavaScript',
+                'framework'
+            ],
+            onClick: function (e) {
+                print(e);
+                loadMainView(e);
+            }
+        };
 
-        navigation.render(data, function (el) {
-            events.on('click', el.querySelectorAll('li'), [print, loadMainView]);
+        navigation.render(props, function (el) {
             document.querySelector('#left-menu').appendChild(el);
         });
     }
@@ -56,4 +59,4 @@
         });
     }
 
-}(vanilla.nav, vanilla.logView, vanilla.terminal, eventHelper));
+}(vanilla.nav, vanilla.logView, vanilla.terminal));
