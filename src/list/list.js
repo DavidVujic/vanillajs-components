@@ -1,18 +1,31 @@
-define(['templates', 'components', 'listItem/listItem'], function (templates, componentHelper, listItem) {
+define(['templates', 'listItem/listItem'], function (templates, listItem) {
 
-    function render(data, done) {
+    function render(props, done) {
+
         templates.load('/src/list/list.html', null, function (el) {
+            var data = props.data.slice();
 
-            componentHelper.each({
-                component: listItem,
-                data: data,
-                container: el.querySelector('ul'),
-                callback: function (res) {
-                    if (res.done) {
-                        done(el);
-                    }
+            function addListItem() {
+                var childProps = {
+                    data: data.shift(),
+                    onClick: props.onClick
+                };
+
+                listItem.render(childProps, function (child) {
+                    el.querySelector('ul').appendChild(child);
+                    next();
+                });
+            }
+
+            function next() {
+                if (data.length === 0) {
+                    done(el);
+                } else {
+                    addListItem();
                 }
-            });
+            }
+
+            next();
         });
     }
 
