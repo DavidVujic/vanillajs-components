@@ -2,13 +2,14 @@
 
 vanilla.listItem = (function (templates) {
 
-    function render(data, done) {
-        var templateData = {
+    function render(props, done) {
+        var templateProps = {
             title: 'the listItem component',
-            text: data
+            data: props.data
         };
 
-        templates.load('/src/listItem/listItem.html', templateData, function (el) {
+        templates.load('/src/listItem/listItem.html', templateProps, function (el) {
+            el.addEventListener('click', props.onClick);
             if (done) {
                 done(el);
             }
