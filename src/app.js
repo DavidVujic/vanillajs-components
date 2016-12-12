@@ -23,10 +23,10 @@ class App extends React.Component {
             mainText: 'vanilla components'
         });
 
-        this.action = this.action.bind(this);
+        this.onClick = this.onClick.bind(this);
     }
 
-    action(e) {
+    onClick(e) {
         const messages = this.state.logMessages.slice();
         messages.push(`${e.type} : ${e.target.nodeName} : ${e.target.innerHTML}`);
 
@@ -36,7 +36,7 @@ class App extends React.Component {
     render() {
         return <section>
             <section id="left-menu">
-                <Nav data={this.state.navData} action={this.action}/>
+                <Nav data={this.state.navData} onClick={this.onClick}/>
             </section>
             <section id="main">
                 <Terminal text={this.state.mainText}/>
