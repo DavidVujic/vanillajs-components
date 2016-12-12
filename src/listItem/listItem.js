@@ -1,12 +1,13 @@
 import load from 'templates';
 
-export function render(data, done) {
-    const templateData = {
+export function render(props, done) {
+    const templateProps = {
         title: 'the listItem component',
-        text: data
+        data: props.data
     };
 
-    load('/src/listItem/listItem.html', templateData, (el) => {
+    load('/src/listItem/listItem.html', templateProps, (el) => {
+        el.addEventListener('click', props.onClick);
         if (done) {
             done(el);
         }

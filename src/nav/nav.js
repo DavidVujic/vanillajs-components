@@ -1,16 +1,16 @@
 import load from 'templates';
 import * as list from 'list/list';
 
-export function render(data, done) {
+export function render(props, done) {
     load('/src/nav/nav.html', null, (el) => {
 
-        list.render(data, (child) => {
+        list.render(props, (child) => {
             el.appendChild(child);
 
             if (done) {
                 done(el);
             }
         });
-        
+
     });
 }
