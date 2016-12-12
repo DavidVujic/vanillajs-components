@@ -1,7 +1,6 @@
 import * as navigation from 'nav/nav';
 import * as logView from 'logView/logView';
 import * as terminal from 'terminal/terminal';
-import on from 'events';
 
 var printTargets = [];
 
@@ -10,18 +9,23 @@ loadMainView();
 loadLogView();
 
 function loadLeftMenu() {
-    const data = [
-        'You',
-        'might',
-        '(not)',
-        'need',
-        'a',
-        'JavaScript',
-        'framework'
-    ];
+    const props = {
+        data: [
+            'You',
+            'might',
+            '(not)',
+            'need',
+            'a',
+            'JavaScript',
+            'framework'
+        ],
+        onClick: function(e) {
+            print(e);
+            loadMainView(e);
+        }
+    };
 
-    navigation.render(data, (el) => {
-        on('click', el.querySelectorAll('li'), [print, loadMainView]);
+    navigation.render(props, (el) => {
         document.querySelector('#left-menu').appendChild(el);
     });
 }
