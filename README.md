@@ -12,12 +12,14 @@ The listItem.js component
 ````javascript
 vanilla.listItem = (function (templates) {
 
-    // load the html, insert data, pass the node to be rendered to the DOM
-    function render(data, done) {
-        // load the html async, using a helper module
+    function render(props, done) {
+
+        // load the html using a template helper
         templates.load('/src/listItem/listItem.html', function (el) {
-            // insert data
-            el.textContent = data;
+
+            // set data
+            el.textContent = props.data;
+            el.addEventListener('click', props.onClick);
 
             if (done) {
                 // pass the node to be rendered to the DOM
@@ -31,6 +33,7 @@ vanilla.listItem = (function (templates) {
     };
 
 }(templates));
+
 
 ````
 
