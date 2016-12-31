@@ -133,7 +133,7 @@ define(['templates'], function (templates) {
 
 ## But wait. Don't we have native modules in Javascript now? ##
 
-Oh, I forgot. It is 2017 and ECMAScript 2015 was released almost two years ago. A nice module system was included in it. In the branch with-es2017 [länk] I have rewritten the modules (again). The code is now dressed in ES2017 style, with arrow functions, the const keyword and the ES import feature.
+Oh, I forgot. It is 2017 and ECMAScript 2015 was released almost two years ago. A nice module system was included in it. In the branch with-es2017 [länk] I have rewritten the modules to ES2017 style with arrow functions, the const keyword and most importantly, the ES import/export feature.
 
 Now, the listItem component looks like this:
 
