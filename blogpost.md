@@ -180,9 +180,9 @@ The entry point is now one bundled and minified JavScript file.
 <script data-main="lib/bundle/main" src="lib/vendor/requirejs.js"></script>
 ```
 
-The package.json file now contains a bundle script. The source code in this branch is compiled from ES2017 to browser friendly AMD modules. With Require.js, there is a tool for bundling & minification included (called r.js). I am using r.js in this branch.
+The package.json file now contains a bundle script. The source code in this branch is compiled from ES2017 to browser friendly AMD modules. With Require.js, there is a tool for bundling & minification included (called r.js) and it is used in this branch.
 
-Note: as an alternative, babel can compile ES2017 code to plain vanilla JavaScript without modules and without any dependencies to third party module systems.
+Note: babel can also compile ES2017 code to plain vanilla JavaScript without modules and without any dependencies to third party module systems.
 ```json
 "bundle": "node node_modules/.bin/r.js -o baseUrl=lib name=main out=lib/bundle/main.js"
 ```
@@ -205,7 +205,7 @@ How is that even possible? Okay, I forgot to mention Webpack.config. Sorry. Some
 One nice thing with Webpack is that there is no longer any need for require.js. Webpack will resolve AMD modules and convert them to plain vanilla JavaScript before bundling & minification. Also, Webpack has a local dev server feature that I like. This will come at handy in the next step.
 
 ## Add React to the mix ##
-This is how the listItem component looks like in the branch with-react [länk]. The template files are gone, everything is written in the JavaScript modules using the JSX syntax. There is no longer need for a custom template loader or mustaches. Compared to the previous branch, this one has less code.
+This is how the listItem component looks like in the branch with-react [länk]. The template files are gone, everything is written in the JavaScript modules using the JSX syntax. There is no longer need for a custom template loader or mustaches. Compared to the source code in the previous branch, this one has less code.
 
 ```JavaScript
 import React from 'react';
