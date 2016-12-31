@@ -175,20 +175,20 @@ When browsing the page there is now a couple of third party libs loaded to the c
 ### Bundling & minification ###
 While we're at it, we might as well add another build step that will bundle all JavaScript files to one file. This will reduce the number of requests from the browser. With minification we also loose a couple of Kb.
 
-The entry point is now a bundled and minified JavScript file.
+The entry point is now one bundled and minified JavScript file.
 ```html
 <script data-main="lib/bundle/main" src="lib/vendor/requirejs.js"></script>
 ```
 
-The package.json file now has a bundle script. The source code in this branch is compiled from ES2017 to browser friendly AMD modules. With Require.js, there is a tool for bundling & minification called r.js.
+The package.json file now contains a bundle script. The source code in this branch is compiled from ES2017 to browser friendly AMD modules. With Require.js, there is a tool for bundling & minification included (called r.js). I am using r.js in this branch.
 
-Note: as an alternative, babel can compile ES2017 code to plain vanilla JavaScript without modules and without any dependencies to third party module systems like require.js.
+Note: as an alternative, babel can compile ES2017 code to plain vanilla JavaScript without modules and without any dependencies to third party module systems.
 ```json
 "bundle": "node node_modules/.bin/r.js -o baseUrl=lib name=main out=lib/bundle/main.js"
 ```
 
 ### Where's Webpack? ###
-The scripts section of the package.json file is massive and probably difficult to understand. By using Webpack, most of the build steps are no longer necessary. Webpack can do lot of things, it's like a swiss army knife (that's both good and bad, I guess).
+The scripts section of the package.json file is quite massive and probably difficult to understand. By using Webpack, most of those build steps are no longer necessary. Webpack does a lot of things, it's like a swiss army knife (that's both good and bad, I guess).
 
 ___package.json with Webpack:___
 ```json
