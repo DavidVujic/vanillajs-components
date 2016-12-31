@@ -19,8 +19,8 @@ When learning about React patterns, I started thinking about how this could be d
 I want to learn and understand the problems that are solved using it. One way is to experience it the hard way, by writing code with plain old vanilla JavaScript, html, css and find out what pain is removed by which framework. Also, I think it is a fun challenge!
 
 
-## So, show me the code ##
-This code in the main branch of the repo does not require any build steps or npm package downloads. The "listItem component" is made of two parts: JavaScript in a code file and an html template in a separate file. The render() function (yes, the name is inspired by React) will create a DOM object containing the html from the template, injected with data from the function parameter. The result is passed to the callback function (the input parameter "done").
+## Show me the code ##
+This code in the main branch of the repo does not require any build steps or npm package downloads. The "listItem component" is made of two parts: JavaScript in a code file and an html template in a separate file. The render function (yes, the name is inspired by React) will create a DOM object containing the html from the template, injected with data from the function parameter. The result is passed to the callback function (the input parameter "done").
 
 ___listItem.js:___
 
@@ -62,7 +62,7 @@ ___Something like this:___
 
 How about adding a template render engine?
 
-## Let's grow a Mustache ##
+## Time to grow a Mustache ##
 Here's the same component, using a template engine called Mustache.js. You will find the code in a separate branch of the repo (with-template-engine). [compare-länk]
 
 ```javascript
@@ -93,10 +93,10 @@ It is now possible to write html templates with placeholders for data like this:
 ```
 
 ## More issues? ##
-If you check out the source code in the main branch you'll notice the vanilla JavaScript coding style called IIFE to write modules I have used. Also, every file is added with script tags in the html body of index.html. Some modules depend on others and have to be added in the correct order. That's not great!
+If you look at the source code in the main branch you'll notice the JavaScript files is written with a coding style called IIFE (immediately invoked function expression). It is used to isolate code and makes it possible to write modules without using any framework. Also, every single file is added with script tags in the html body of the page (index.html). Some modules depend on others and have to be added in the correct order. That's not great!
 
 ## Solution: JavaScript AMD modules ##
-In a separate branch, called with-amd [länk här], I have converted all of the immediately invoked function expressions (IIFE) to AMD modules. I use Require.js that will load the modules and resolve dependencies, using the define and require functions.
+In a separate branch, called with-amd [länk här], I have converted all of the immediately invoked function expressions (IIFE) to AMD modules. I use Require.js that takes care of module loading and dependencies, by using the define and require functions.
 
 Instead of a very long list of html script tags, there is only an entry point defined.
 
