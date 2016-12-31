@@ -173,7 +173,7 @@ The package.json file in the project now has quite a few scripts. In addition to
 When browsing the page there is now a couple of third party libs loaded to the client, besides our own modules. This might cause a not so great experience for users with a slow connection.
 
 ### Bundling & minification ###
-While we're at it, we might as well add another build step that will bundle all JavaScript files to one file. This will reduce the number of requests from the browser. With minification we can also loose a couple of Kb.
+While we're at it, we might as well add another build step that will bundle all JavaScript files to one file. This will reduce the number of requests from the browser. With minification we also loose a couple of Kb.
 
 The entry point is now a bundled and minified JavScript file.
 ```html
@@ -182,13 +182,13 @@ The entry point is now a bundled and minified JavScript file.
 
 The package.json file now has a bundle script. The source code in this branch is compiled from ES2017 to browser friendly AMD modules. With Require.js, there is a tool for bundling & minification called r.js.
 
-Note: as an alternative, babel can compile ES2017 code to plain vanilla JavaScript without modules and without any dependencies to a third party module system like require.js.
+Note: as an alternative, babel can compile ES2017 code to plain vanilla JavaScript without modules and without any dependencies to third party module systems like require.js.
 ```json
 "bundle": "node node_modules/.bin/r.js -o baseUrl=lib name=main out=lib/bundle/main.js"
 ```
 
 ### Where's Webpack? ###
-The scripts section of the package.json file is massive and probably difficult to understand. By using Webpack, most of the build steps are no longer necessary. Webpack can do lot of things, it's like a swiss army knife!
+The scripts section of the package.json file is massive and probably difficult to understand. By using Webpack, most of the build steps are no longer necessary. Webpack can do lot of things, it's like a swiss army knife (that's both good and bad, I guess).
 
 ___package.json with Webpack:___
 ```json
@@ -201,5 +201,18 @@ ___package.json with Webpack:___
 
 How is that even possible? Okay, I forgot to mention Webpack.config. Sorry. Some of the build magic live in that file now.
 
-## So, what difference did we make? ##
-One nice thing is that we no longer need require.js. Webpack will resolve AMD modules and convert them to plain vanilla JavaScript. Also, Webpack has a dev server feature that I like. This will come at handy in the next step.
+## Did it make any difference? ##
+One nice thing with Webpack is that there is no longer any need for require.js. Webpack will resolve AMD modules and convert them to plain vanilla JavaScript before bundling & minification. Also, Webpack has a local dev server feature that I like. This will come at handy in the next step.
+
+## Add React to the mix ##
+This is how the listItem component looks like in the branch with-react [länk]. The template files are gone, everything is written in the JavaScript modules using the JSX syntax. There is no longer need for a custom template loader or mustaches. Compared to the previous branch, this one has less code.
+
+```JavaScript
+import React from 'react';
+
+function ListItem(props) {
+    return <li className='listItem' title='the listItem component' onClick={props.onClick}>{props.data}</li>;
+}
+
+export default ListItem;
+```
