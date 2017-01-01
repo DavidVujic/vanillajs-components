@@ -20,8 +20,8 @@ I want to learn and understand the problems that are solved using a framework. O
 ## Example code ##
 You will find all code referenced in this blog post at my [GitHub page](https://github.com/DavidVujic/vanillajs-components/)
 
-## Show me the code ##
-This code in the [main branch](https://github.com/DavidVujic/vanillajs-components/) of the repo does not require any build steps or npm package downloads. The "listItem component" is made of two parts: JavaScript in a code file and an html template in a separate file. The render function will create a DOM object containing the html from the template, injected with data from the function parameter. The result is passed to a callback function.
+## Build step free code ##
+This code in the [main branch](https://github.com/DavidVujic/vanillajs-components/) of the repo does not require any build steps or npm package downloads. The "listItem component" is made of two parts: JavaScript in a code file and an html template in a separate file. The render function will create a DOM object containing the html from the template, injected with data that is passed to it. The result is returned in a callback function.
 
 ___code from listItem.js:___
 
