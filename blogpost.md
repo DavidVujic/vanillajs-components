@@ -13,16 +13,26 @@ I am currently learning about React, and I like it. React have JSX, ES 2016 and 
 
 When learning about React patterns, I started thinking about how this could be done without using React, ES 2016, Webpack or any of the other frameworks out there. Is that even possible? (Yes, of course it is)
 
-
 ## Okay, but why? ##
 
 I want to learn and understand the problems that are solved using it. One way is to experience it the hard way, by writing code with plain old vanilla JavaScript, html, css and find out what pain is removed by which framework. Also, I think it is a fun challenge!
 
+## Example code ##
+You will find all code referenced in this blog post at my [GitHub page](https://github.com/DavidVujic/vanillajs-components/)
+
+TL;DR;? Okay, here's a comparison of the different branches:
+* with a template engine [compare with vanilla code](https://github.com/DavidVujic/vanillajs-components/compare/with-template-engine)
+* With AMD modules [compare](https://github.com/DavidVujic/vanillajs-components/compare/with-template-engine...with-amd-modules)
+* With ES2017 [compare](https://github.com/DavidVujic/vanillajs-components/compare/with-amd-modules...with-es2017)
+* With bundling & minification [compare](https://github.com/DavidVujic/vanillajs-components/compare/with-es2017...with-bundling)
+* With Webpack [compare](https://github.com/DavidVujic/vanillajs-components/compare/with-bundling...with-webpack)
+* With React [compare](https://github.com/DavidVujic/vanillajs-components/compare/with-webpack...with-react)
+
 
 ## Show me the code ##
-This code in the main branch of the repo does not require any build steps or npm package downloads. The "listItem component" is made of two parts: JavaScript in a code file and an html template in a separate file. The render function (yes, the name is inspired by React) will create a DOM object containing the html from the template, injected with data from the function parameter. The result is passed to the callback function (the input parameter "done").
+This code in the [main branch](https://github.com/DavidVujic/vanillajs-components/) of the repo does not require any build steps or npm package downloads. The "listItem component" is made of two parts: JavaScript in a code file and an html template in a separate file. The render function (yes, the name is inspired by React) will create a DOM object containing the html from the template, injected with data from the function parameter. The result is passed to the callback function (the input parameter named "done").
 
-___listItem.js:___
+___code from listItem.js:___
 
 ```javascript
 function render(props, done) {
@@ -52,18 +62,18 @@ ___The listItem.html template:___
 <li class="listItem" title="the listItem component"></li>
 ```
 
-This is of course a very simplistic example with a single tag html template, but I think it already highlights issues: the data. To understand where data is added, we have to read and understand the contents of the render function. I think it would be nice if the data to be rendered is visible in the template.
+This is of course a very simplistic example with a single tag html template, but I think it already highlights issues: where's the data? To understand where data is added, we have to read and understand the contents of the render function. I think it would be nice if the data to be rendered is visible in the template.
 
-___Something like this:___
+___Maybe something like this:___
 ```html
 <li class="listItem" title="the listItem component">{{data}}</li>
 
 ```
 
-How about adding a template render engine?
-
 ## Time to grow a Mustache ##
-Here's the same component, using a template engine called Mustache.js. You will find the code in a separate branch of the repo (with-template-engine). [compare-länk]
+How about adding a template render engine? Here's the same component, using a template engine called Mustache.js. You will find the code in a separate branch of the repo (with-template-engine).
+
+[compare with the vanilla code](https://github.com/DavidVujic/vanillajs-components/compare/with-template-engine)
 
 ```javascript
 function render(props, done) {
@@ -81,7 +91,7 @@ function render(props, done) {
 
 The templates helper use Mustache to render the html from the template and the data.
 
-___templates.js:___
+___code from the templates.js file:___
 ```javascript
 container.innerHTML = Mustache.render(template, data);
 ```
@@ -93,14 +103,16 @@ It is now possible to write html templates with placeholders for data like this:
 ```
 
 ## More issues? ##
-If you look at the source code in the main branch you'll notice the JavaScript files is written with a coding style called IIFE (immediately invoked function expression). It is used to isolate code and makes it possible to write modules without using any framework. Also, every single file is added with script tags in the html body of the page (index.html). Some modules depend on others and have to be added in the correct order. That's not great!
+If you look at the source code in the main branch you'll notice the JavaScript files is written with a coding style called IIFE (immediately invoked function expression). It is used to isolate code and makes it possible to write modules without using any framework. Also, every single file is added with a script tag in the html body of the page (index.html). Some modules depend on others and have to be added in the correct order. That's not great!
 
 ## Solution: JavaScript AMD modules ##
-In a separate branch, called with-amd [länk här], I have converted all of the immediately invoked function expressions (IIFE) to AMD modules. I use Require.js that takes care of module loading and dependencies, by using the define and require functions.
+In a separate branch, I have converted all of the immediately invoked function expressions (IIFE) to AMD modules. I use Require.js that takes care of module loading and dependencies, by using the define and require functions.
 
 Instead of a very long list of html script tags, there is only an entry point defined.
 
-___index.html___
+[compare it with the previous branch](https://github.com/DavidVujic/vanillajs-components/compare/with-template-engine...with-amd-modules)
+
+___from the index.html file___
 ```html
  <script data-main="src/app" src="lib/vendor/requirejs.js"></script>
 ```
@@ -133,7 +145,11 @@ define(['templates'], function (templates) {
 
 ## But wait. Don't we have native modules in Javascript now? ##
 
-Oh, I forgot. It is 2017 and ECMAScript 2015 was released almost two years ago. A nice module system was included in it. In the branch with-es2017 [länk] I have rewritten the modules to ES2017 style with arrow functions, the const keyword and most importantly, the ES import/export feature.
+Oh, I forgot. It is 2017 and ECMAScript 2015 was released almost two years ago. A nice module system was included in it. Finally there is a common standard in the language!
+
+I have rewritten the modules to ES2017 style with arrow functions, the const keyword and most importantly, the ES import/export feature.
+
+[compare the ES2017 code with old school JavaScript](https://github.com/DavidVujic/vanillajs-components/compare/with-amd-modules...with-es2017)
 
 Now, the listItem component looks like this:
 
@@ -152,9 +168,9 @@ export function render(props, done) {
 }
 ```
 
-I think the code has improved a bit! ES2017 is great, but it comes with a tradeoff. The browsers don't have enough support for this version of JavaScript yet. To make it work in all kinds of browsers and devices we need a build step: compile the code from ES2017 to vanilla JavaScript with Babel.
+I think the code has improved a bit! ES2017 is great, __but there are tradeoffs to be aware of__. The browsers don't have enough support for this version of JavaScript yet. To make it work in all kinds of browsers and devices we need to add a build step: compile the code from ES2017 to vanilla JavaScript with Babel.
 
-The package.json file in the project now has quite a few scripts. In addition to dependencies like Mustache.js and require.js, there is a compile-to-vanilla step and a polyfill dependency added:
+The package.json file in the project has quite a few scripts compared to the original framework-and-build-step-free version. In addition to dependencies like Mustache.js and require.js, there is a compile-to-vanilla step and a polyfill dependency added:
 ```json
 "scripts": {
     "deps:lib": "mkdir -p -v lib/vendor",
@@ -169,18 +185,20 @@ The package.json file in the project now has quite a few scripts. In addition to
   }
 ```
 
-## Too heavy? ##
-When browsing the page there is now a couple of third party libs loaded to the client, besides our own modules. This might cause a not so great experience for users with a slow connection.
+## More frameworks, more problems ##
+When browsing the page there is now a couple of third party libraries loaded to the client, besides our own modules. This might cause a not so great experience for users with a slow connection.
 
 ### Bundling & minification ###
-While we're at it, we might as well add another build step that will bundle all JavaScript files to one file. This will reduce the number of requests from the browser. With minification we also loose a couple of Kb.
+While we're at it, we might as well add another build step that will bundle all JavaScript files to one file. This will reduce the number of requests from the browser. With minification we also loose a couple of Kilobytes.
 
 The entry point is now one bundled and minified JavScript file.
 ```html
 <script data-main="lib/bundle/main" src="lib/vendor/requirejs.js"></script>
 ```
 
-The package.json file now contains a bundle script. The source code in this branch is compiled from ES2017 to browser friendly AMD modules. With Require.js, there is a tool for bundling & minification included (called r.js) and it is used in this branch.
+The package.json file in the branch called "with-bundling" now contains a bundle script. The source code in this branch is compiled from ES2017 to browser friendly AMD modules. With Require.js, there is a tool for bundling & minification included (called r.js) and it is used in this branch.
+
+[compare the branches](https://github.com/DavidVujic/vanillajs-components/compare/with-es2017...with-bundling)
 
 Note: babel can also compile ES2017 code to plain vanilla JavaScript without modules and without any dependencies to third party module systems.
 ```json
@@ -188,7 +206,9 @@ Note: babel can also compile ES2017 code to plain vanilla JavaScript without mod
 ```
 
 ### Where's Webpack? ###
-The scripts section of the package.json file is quite massive and probably difficult to understand. By using Webpack, most of those build steps are no longer necessary. Webpack does a lot of things, it's like a swiss army knife (that's both good and bad, I guess).
+The scripts section of the package.json file is quite massive now and probably difficult to understand. By using Webpack, most of those build steps are no longer necessary. Webpack does a lot of things, it's like a swiss army knife (that's both good and bad, I guess).
+
+[compare the two branches, with bundling vs with Webpack](https://github.com/DavidVujic/vanillajs-components/compare/with-bundling...with-webpack)
 
 ___package.json with Webpack:___
 ```json
@@ -199,13 +219,15 @@ ___package.json with Webpack:___
   }
 ```
 
-How is that even possible? Okay, I forgot to mention Webpack.config. Sorry. Some of the build magic live in that file now.
+Where did it all go, how is that even possible? Okay, I forgot to mention Webpack.config. Sorry. Some of the build magic live in that file now.
 
-## Did it make any difference? ##
+### Did Webpack make any difference? ###
 One nice thing with Webpack is that there is no longer any need for require.js. Webpack will resolve AMD modules and convert them to plain vanilla JavaScript before bundling & minification. Also, Webpack has a local dev server feature that I like. This will come at handy in the next step.
 
 ## Add React to the mix ##
-This is how the listItem component looks like in the branch with-react [länk]. The template files are gone, everything is written in the JavaScript modules using the JSX syntax. There is no longer need for a custom template loader or mustaches. Compared to the source code in the previous branch, this one has less code.
+This is how the listItem component looks like when converted to React. The template files are gone, everything is written in the JavaScript modules using the JSX syntax. There is no longer need for a custom template loader or mustaches. Compared to the source code in the previous branch, this one has less code.
+
+[React: Before vs After](https://github.com/DavidVujic/vanillajs-components/compare/with-webpack...with-react)
 
 ```JavaScript
 import React from 'react';
