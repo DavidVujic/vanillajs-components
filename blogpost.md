@@ -73,18 +73,16 @@ function render(props, done) {
 ```
 [compare with the vanilla code](https://github.com/DavidVujic/vanillajs-components/compare/with-template-engine)
 
+It is now possible to write html templates with placeholders for data like this:
+```html
+<li class="listItem" title="the listItem component">{{data}}</li>
+```
 
-The templates helper use Mustache to render the html from the template and the data.
+The templates helper now use Mustache to render the html from the template and the data.
 
 ___code from the templates.js file:___
 ```javascript
 container.innerHTML = Mustache.render(template, data);
-```
-
-It is now possible to write html templates with placeholders for data like this:
-```html
-<li class="listItem" title="the listItem component">{{data}}</li>
-
 ```
 
 ## More issues? ##
@@ -184,9 +182,6 @@ The package.json file in the branch called "with-bundling" now contains a bundle
 [compare the branches](https://github.com/DavidVujic/vanillajs-components/compare/with-es2017...with-bundling)
 
 Note: babel can also compile ES2017 code to plain vanilla JavaScript without modules and without any dependencies to third party module systems.
-```json
-"bundle": "node node_modules/.bin/r.js -o baseUrl=lib name=main out=lib/bundle/main.js"
-```
 
 ### Where's Webpack? ###
 The scripts section of the package.json file is quite massive now and probably difficult to understand. By using Webpack, most of those build steps are no longer necessary. Webpack does a lot of things, it's like a swiss army knife (that's both good and bad, I guess).
@@ -205,7 +200,7 @@ ___package.json with Webpack:___
 Where did it all go, how is that even possible? Okay, I forgot to mention Webpack.config. Sorry. Some of the build magic live in that file now.
 
 ### Did Webpack make any difference? ###
-One nice thing with Webpack is that there is no longer any need for require.js. Webpack will resolve AMD modules and convert them to plain vanilla JavaScript before bundling & minification. Also, Webpack has a local dev server feature that I like. This will come at handy in the next step.
+One nice thing with Webpack is that there is no longer any need for require.js. Webpack will resolve AMD modules and convert them to plain vanilla JavaScript before bundling & minification. Also, Webpack has a local dev server feature that I like.
 
 ## Add React to the mix ##
 This is how the listItem component looks like when converted to React. The template files are gone, everything is written in the JavaScript modules using the JSX syntax. There is no longer need for a custom template loader or mustaches. Compared to the source code in the previous branch, this one has less code.
