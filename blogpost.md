@@ -55,12 +55,6 @@ ___The listItem.html template:___
 
 This is of course a very simplistic example with a single tag html template, but I think it already highlights issues: where's the data? To understand where data is added, we have to read and understand the contents of the render function. I think it would be nice if the data to be rendered is visible in the template.
 
-___Maybe something like this:___
-```html
-<li class="listItem" title="the listItem component">{{data}}</li>
-
-```
-
 ## Time to grow a Mustache ##
 How about adding a template render engine? Here's the same component, using a template engine called Mustache.js. You will find the code in a separate branch of the repo (with-template-engine).
 
