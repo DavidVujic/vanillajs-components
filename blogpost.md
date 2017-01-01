@@ -11,7 +11,7 @@ I am currently learning about React, and I like it. React have JSX, ES2017 and a
 
 ## Components with vanilla JavaScript? ##
 
-When learning about React patterns, I started thinking about how this could be done without using React, ES2017, Webpack or any of the other frameworks out there. Is that even possible? (Yes, of course it is)
+When learning about React patterns, I started thinking about how this could be done without using React, ES2017, Webpack or any of the other frameworks out there. Is that even possible?
 
 ## Okay, but why? ##
 
@@ -21,7 +21,7 @@ I want to learn and understand the problems that are solved using it. One way is
 You will find all code referenced in this blog post at my [GitHub page](https://github.com/DavidVujic/vanillajs-components/)
 
 ## Show me the code ##
-This code in the [main branch](https://github.com/DavidVujic/vanillajs-components/) of the repo does not require any build steps or npm package downloads. The "listItem component" is made of two parts: JavaScript in a code file and an html template in a separate file. The render function (yes, the name is inspired by React) will create a DOM object containing the html from the template, injected with data from the function parameter. The result is passed to the callback function (the input parameter named "done").
+This code in the [main branch](https://github.com/DavidVujic/vanillajs-components/) of the repo does not require any build steps or npm package downloads. The "listItem component" is made of two parts: JavaScript in a code file and an html template in a separate file. The render function will create a DOM object containing the html from the template, injected with data from the function parameter. The result is passed to a callback function.
 
 ___code from listItem.js:___
 
