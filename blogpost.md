@@ -6,12 +6,12 @@ Redux? Relax.
 
 Developing a front end web project of today can be a bit intimidating, especially when the home base is back end development. What about all those frameworks and tools, why use them?
 
-I am currently learning about React, and I like it. React have JSX, ES 2016 and a nice logo. That is cool, but my favorite thing with React is how code is organized. A user interface is built with components: small and isolated "packages" of html & JavaScript. That is a pattern I like.
+I am currently learning about React, and I like it. React have JSX, ES2017 and a nice logo. That is cool, but my favorite thing with React is how code is organized. A user interface is built with components: small and isolated "packages" of html & JavaScript. That is a pattern I like.
 
 
 ## Components with vanilla JavaScript? ##
 
-When learning about React patterns, I started thinking about how this could be done without using React, ES 2016, Webpack or any of the other frameworks out there. Is that even possible? (Yes, of course it is)
+When learning about React patterns, I started thinking about how this could be done without using React, ES2017, Webpack or any of the other frameworks out there. Is that even possible? (Yes, of course it is)
 
 ## Okay, but why? ##
 
@@ -19,15 +19,6 @@ I want to learn and understand the problems that are solved using it. One way is
 
 ## Example code ##
 You will find all code referenced in this blog post at my [GitHub page](https://github.com/DavidVujic/vanillajs-components/)
-
-TL;DR;? Okay, here's a comparison of the different branches:
-* with a template engine [compare with vanilla code](https://github.com/DavidVujic/vanillajs-components/compare/with-template-engine)
-* With AMD modules [compare](https://github.com/DavidVujic/vanillajs-components/compare/with-template-engine...with-amd-modules)
-* With ES2017 [compare](https://github.com/DavidVujic/vanillajs-components/compare/with-amd-modules...with-es2017)
-* With bundling & minification [compare](https://github.com/DavidVujic/vanillajs-components/compare/with-es2017...with-bundling)
-* With Webpack [compare](https://github.com/DavidVujic/vanillajs-components/compare/with-bundling...with-webpack)
-* With React [compare](https://github.com/DavidVujic/vanillajs-components/compare/with-webpack...with-react)
-
 
 ## Show me the code ##
 This code in the [main branch](https://github.com/DavidVujic/vanillajs-components/) of the repo does not require any build steps or npm package downloads. The "listItem component" is made of two parts: JavaScript in a code file and an html template in a separate file. The render function (yes, the name is inspired by React) will create a DOM object containing the html from the template, injected with data from the function parameter. The result is passed to the callback function (the input parameter named "done").
@@ -170,7 +161,7 @@ export function render(props, done) {
 
 I think the code has improved a bit! ES2017 is great, __but there are tradeoffs to be aware of__. The browsers don't have enough support for this version of JavaScript yet. To make it work in all kinds of browsers and devices we need to add a build step: compile the code from ES2017 to vanilla JavaScript with Babel.
 
-The package.json file in the project has quite a few scripts compared to the original framework-and-build-step-free version. In addition to dependencies like Mustache.js and require.js, there is a compile-to-vanilla step and a polyfill dependency added:
+The package.json file in the project has quite a few scripts compared to the original framework-and-build-step-free version. In addition to dependencies like Mustache.js and Require.js, there is a compile-to-vanilla step and a polyfill dependency added:
 ```json
 "scripts": {
     "deps:lib": "mkdir -p -v lib/vendor",
@@ -196,7 +187,7 @@ The entry point is now one bundled and minified JavScript file.
 <script data-main="lib/bundle/main" src="lib/vendor/requirejs.js"></script>
 ```
 
-The package.json file in the branch called "with-bundling" now contains a bundle script. The source code in this branch is compiled from ES2017 to browser friendly AMD modules. With Require.js, there is a tool for bundling & minification included (called r.js) and it is used in this branch.
+The package.json file in the branch called "with-bundling" now contains a bundle script. The source code in this branch is compiled from ES2017 to browser friendly AMD modules. With Require.js, there is a tool for bundling & minification included (called R.js) and it is used in this branch.
 
 [compare the branches](https://github.com/DavidVujic/vanillajs-components/compare/with-es2017...with-bundling)
 
