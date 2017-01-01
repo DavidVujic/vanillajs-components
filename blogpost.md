@@ -58,8 +58,6 @@ This is of course a very simplistic example with a single tag html template, but
 ## Time to grow a Mustache ##
 How about adding a template render engine? Here's the same component, using a template engine called Mustache.js. You will find the code in a separate branch of the repo (with-template-engine).
 
-[compare with the vanilla code](https://github.com/DavidVujic/vanillajs-components/compare/with-template-engine)
-
 ```javascript
 function render(props, done) {
 
@@ -73,6 +71,8 @@ function render(props, done) {
     });
 }
 ```
+[compare with the vanilla code](https://github.com/DavidVujic/vanillajs-components/compare/with-template-engine)
+
 
 The templates helper use Mustache to render the html from the template and the data.
 
@@ -94,8 +94,6 @@ If you look at the source code in the main branch you'll notice the JavaScript f
 In a separate branch, I have converted all of the immediately invoked function expressions (IIFE) to AMD modules. I use Require.js that takes care of module loading and dependencies, by using the define and require functions.
 
 Instead of a very long list of html script tags, there is only an entry point defined.
-
-[compare it with the previous branch](https://github.com/DavidVujic/vanillajs-components/compare/with-template-engine...with-amd-modules)
 
 ___from the index.html file___
 ```html
@@ -128,13 +126,14 @@ define(['templates'], function (templates) {
 });
 ```
 
+[compare it with the previous branch](https://github.com/DavidVujic/vanillajs-components/compare/with-template-engine...with-amd-modules)
+
+
 ## But wait. Don't we have native modules in Javascript now? ##
 
 Oh, I forgot. It is 2017 and ECMAScript 2015 was released almost two years ago. A nice module system was included in it. Finally there is a common standard in the language!
 
 I have rewritten the modules to ES2017 style with arrow functions, the const keyword and most importantly, the ES import/export feature.
-
-[compare the ES2017 code with old school JavaScript](https://github.com/DavidVujic/vanillajs-components/compare/with-amd-modules...with-es2017)
 
 Now, the listItem component looks like this:
 
@@ -152,6 +151,9 @@ export function render(props, done) {
     });
 }
 ```
+
+[compare the ES2017 code with old school JavaScript](https://github.com/DavidVujic/vanillajs-components/compare/with-amd-modules...with-es2017)
+
 
 I think the code has improved a bit! ES2017 is great, __but there are tradeoffs to be aware of__. The browsers don't have enough support for this version of JavaScript yet. To make it work in all kinds of browsers and devices we need to add a build step: compile the code from ES2017 to vanilla JavaScript with Babel.
 
@@ -193,8 +195,6 @@ Note: babel can also compile ES2017 code to plain vanilla JavaScript without mod
 ### Where's Webpack? ###
 The scripts section of the package.json file is quite massive now and probably difficult to understand. By using Webpack, most of those build steps are no longer necessary. Webpack does a lot of things, it's like a swiss army knife (that's both good and bad, I guess).
 
-[compare the two branches, with bundling vs with Webpack](https://github.com/DavidVujic/vanillajs-components/compare/with-bundling...with-webpack)
-
 ___package.json with Webpack:___
 ```json
 "scripts": {
@@ -204,6 +204,8 @@ ___package.json with Webpack:___
   }
 ```
 
+[compare the two branches, with bundling vs with Webpack](https://github.com/DavidVujic/vanillajs-components/compare/with-bundling...with-webpack)
+
 Where did it all go, how is that even possible? Okay, I forgot to mention Webpack.config. Sorry. Some of the build magic live in that file now.
 
 ### Did Webpack make any difference? ###
@@ -212,7 +214,6 @@ One nice thing with Webpack is that there is no longer any need for require.js. 
 ## Add React to the mix ##
 This is how the listItem component looks like when converted to React. The template files are gone, everything is written in the JavaScript modules using the JSX syntax. There is no longer need for a custom template loader or mustaches. Compared to the source code in the previous branch, this one has less code.
 
-[React: Before vs After](https://github.com/DavidVujic/vanillajs-components/compare/with-webpack...with-react)
 
 ```JavaScript
 import React from 'react';
@@ -223,3 +224,5 @@ function ListItem(props) {
 
 export default ListItem;
 ```
+
+[React: Before vs After](https://github.com/DavidVujic/vanillajs-components/compare/with-webpack...with-react)
