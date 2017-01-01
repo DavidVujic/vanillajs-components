@@ -15,7 +15,7 @@ When learning about React patterns, I started thinking about how this could be d
 
 ## Okay, but why? ##
 
-I want to learn and understand the problems that are solved using it. One way is to experience it the hard way, by writing code with plain old vanilla JavaScript, html, css and find out what pain is removed by which framework. Also, I think it is a fun challenge!
+I want to learn and understand the problems that are solved using a framework. One way is to experience it the hard way, by writing code with plain old vanilla JavaScript, html, css and find out what pain is removed by which framework. Also, I think it is a fun challenge!
 
 ## Example code ##
 You will find all code referenced in this blog post at my [GitHub page](https://github.com/DavidVujic/vanillajs-components/)
