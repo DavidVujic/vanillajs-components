@@ -100,10 +100,6 @@ ___from the index.html file___
  <script data-main="src/app" src="lib/vendor/requirejs.js"></script>
 ```
 
-The entry point loads the modules needed, and each individual sub module is loading dependencies like this:
-```JavaScript
-define(['templates', 'listItem/listItem'], function (templates, listItem)
-```
 Here is the listItem component as an AMD module:
 ```JavaScript
 define(['templates'], function (templates) {
