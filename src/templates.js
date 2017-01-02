@@ -1,6 +1,6 @@
 /*global Mustache */
 
-var templates = (function (engine) {
+var templates = (function () {
     var savedTemplates = {};
 
     function getAbsolutePath() {
@@ -38,7 +38,7 @@ var templates = (function (engine) {
 
     function toNode(template, data) {
         var container = document.createElement('div');
-        container.innerHTML = engine.render(template, data);
+        container.innerHTML = Mustache.render(template, data);
         return container.children[0];
     }
 
@@ -58,4 +58,4 @@ var templates = (function (engine) {
     return {
         load: loadTemplate
     };
-}(Mustache));
+}());
