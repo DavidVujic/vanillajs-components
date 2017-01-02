@@ -1,12 +1,8 @@
 define(['templates'], function (templates) {
 
     function render(props, done) {
-        var templateProps = {
-            title: 'the listItem component',
-            data: props.data
-        };
 
-        templates.load('/src/listItem/listItem.html', templateProps, function (el) {
+        templates.load('/src/listItem/listItem.html', props, function (el) {
             el.addEventListener('click', props.onClick);
             if (done) {
                 done(el);
