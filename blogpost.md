@@ -62,7 +62,7 @@ A template render engine can solve that. Here's the same component, using a temp
 function render(props, done) {
 
     // just pass the data to a modified version of the template loader helper
-    templates.load('/src/listItem/listItem.html', props.data, function (el) {
+    templates.load('/src/listItem/listItem.html', props, function (el) {
         el.addEventListener('click', props.onClick);
 
         if (done) {
