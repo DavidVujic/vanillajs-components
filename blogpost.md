@@ -223,3 +223,6 @@ export default ListItem;
 ```
 
 [React: Before vs After](https://github.com/DavidVujic/vanillajs-components/compare/with-webpack...with-react)
+
+## Conslusion ##
+By experimenting with one framework at a time, I have learned about the value added and also some of the tradeoffs that comes with using a tool or framework. Sometimes, maybe a plain vanilla JavaScript style is just enough, and sometimes a framework will make life easier. You might (not) need a JavaScript library.
