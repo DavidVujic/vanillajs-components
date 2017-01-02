@@ -20,7 +20,7 @@ I want to learn and understand the problems that are solved using a framework. O
 ## Example code ##
 You will find all code referenced in this blog post at my [GitHub page](https://github.com/DavidVujic/vanillajs-components/)
 
-## Build steps free code ##
+## No build step required ##
 This code in the [main branch](https://github.com/DavidVujic/vanillajs-components/) of the repo does not require any build steps or npm package downloads. The "listItem component" is made of two parts: JavaScript in a code file and an html template in a separate file. The render function will create a DOM object containing the html from the template, injected with data that is passed to it. The result is returned in a callback function.
 
 ___code from listItem.js:___
@@ -53,10 +53,10 @@ ___The listItem.html template:___
 <li class="listItem" title="the listItem component"></li>
 ```
 
-This is of course a very simplistic example with a single tag html template, but I think it already highlights issues: where's the data? To understand where data is added, we have to read and understand the contents of the render function. I think it would be nice if the data to be rendered is visible in the template.
+This is of course a very simplistic example with a single tag html template, but I think it already highlights issues: where's the data added? To understand where data is added, we have to read & understand the contents of the render function. I think it would be nice if the data to be rendered is visible in the actual template.
 
-## Time to grow a Mustache ##
-How about adding a template render engine? Here's the same component, using a template engine called Mustache.js. You will find the code in a separate branch of the GitHub repo.
+## Time to grow a Mustache? ##
+A template render engine can solve that. Here's the same component, using a template engine called Mustache.js. You will find the code in a separate branch of the GitHub repo.
 
 ```javascript
 function render(props, done) {
@@ -101,9 +101,7 @@ If you look at the source code in the main branch you'll notice the JavaScript f
 ```
 
 ## Solution: JavaScript AMD modules ##
-In a separate branch, I have converted all of the immediately invoked function expressions (IIFE) to AMD modules. I use Require.js that takes care of module loading and dependencies.
-
-Instead of a very long list of html script tags, there is only an entry point defined.
+In a separate branch, I have converted all of the immediately invoked function expressions (IIFE) to AMD modules. I use Require.js that takes care of module loading and dependencies. Instead of a very long list of html script tags, there is only an entry point defined.
 
 ___from the index.html file___
 ```html
@@ -137,9 +135,7 @@ define(['templates'], function (templates) {
 
 ## But wait. Don't we have native modules in Javascript now? ##
 
-Oh, I forgot. It is 2017 and ECMAScript 2015 was released almost two years ago. A nice module system was included in it. Finally there is a common standard in the language!
-
-I have rewritten the code to ES2017 style - with arrow functions, the const keyword and most importantly, the ES import/export feature.
+Oh, I forgot. It is 2017 and ECMAScript 2015 was released almost two years ago. A nice module system was included in it. Finally there is a common standard in the language! I have rewritten the code to ES2017 style - with arrow functions, the const keyword and most importantly, the ES import/export feature.
 
 Now, the listItem component looks like this:
 
@@ -161,7 +157,7 @@ export function render(props, done) {
 [compare the ES2017 code with old school JavaScript](https://github.com/DavidVujic/vanillajs-components/compare/with-amd-modules...with-es2017)
 
 
-Maybe the code has improved a bit? ES2017 is great, __but there are tradeoffs to be aware of__. Many browsers don't have enough support for this version of JavaScript yet. To make it work in all kinds of browsers and devices we need to introduce a build step: the code need to be compiled from ES2017 to vanilla JavaScript with Babel.
+I think the code has improved a bit. ES2017 is great, __but there are tradeoffs to be aware of__. Many browsers don't have enough support for this version of JavaScript yet. To make it work in all kinds of browsers and devices __we need to introduce a build step__: the code need to be compiled from ES2017 to vanilla JavaScript with Babel.
 
 The package.json file in the project has quite a few scripts compared to the original framework-and-build-step-free version. In addition to dependencies like Mustache.js and Require.js, there is a compile step and a Babel polyfill dependency added:
 ```json
@@ -189,11 +185,11 @@ The entry point is now one bundled and minified JavScript file.
 <script data-main="lib/bundle/main" src="lib/vendor/requirejs.js"></script>
 ```
 
-The source code in this branch is compiled from ES2017 to browser friendly AMD modules. With Require.js, there is a tool for bundling & minification included (called R.js) and it is used in this branch.
+The source code in this branch is compiled from ES2017 to browser friendly AMD modules. With Require.js, there is a tool for bundling & minification included (called R.js) and used in this branch.
 
 [compare the branches](https://github.com/DavidVujic/vanillajs-components/compare/with-es2017...with-bundling)
 
-### Heard of Webpack? ###
+### Heard about Webpack? ###
 The scripts section of the package.json file is quite massive now and probably difficult to understand. By using Webpack, most of those build steps are no longer necessary. Webpack does a lot of things, it's like a swiss army knife (that's both good and bad, I guess).
 
 ___package.json with Webpack:___
@@ -209,7 +205,7 @@ ___package.json with Webpack:___
 
 Where did it all go, how is that even possible? Okay, I forgot to mention Webpack.config. Sorry. Some of the build magic live in that file now.
 
-### Did Webpack make any difference? ###
+### So, did Webpack make any difference? ###
 One nice thing with Webpack is that there is no longer any need for Require.js. Webpack will resolve ES2017 modules and convert them to plain vanilla JavaScript before the bundling & minification. Also, Webpack has a local dev server feature (with auto reloading on file change) that I like.
 
 ## Add React to the mix ##
