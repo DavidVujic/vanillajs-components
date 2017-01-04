@@ -15,7 +15,7 @@ When learning about React patterns, I started thinking about how this could be d
 
 ## Okay, but why? ##
 
-I want to learn and understand the problems that are solved using a framework. Also, find out what problems can be solved without an "npm install". One way of doing that is to write all code with plain old vanilla JavaScript/html/css and find out what pain is removed by which framework. Also, I think it would be a fun challenge!
+I want to learn and understand the problems that are solved using a framework. Also, I want to find out what problems can be solved without an "npm install". One way of doing that is to write all code with plain old vanilla JavaScript/html/css and find out what pain is removed by which framework. Also, I think it would be a fun challenge!
 
 ## Example code ##
 You will find all code referenced in this blog post at my [GitHub page](https://github.com/DavidVujic/vanillajs-components/)
