@@ -2,18 +2,18 @@
 
 vanilla.terminal = (function (templates) {
 
-    function render(data, done) {
-        templates.load('/src/terminal/terminal.html', function (el) {
-            el.querySelector('.cursor').innerHTML = data;
+  function render(data, done) {
+    templates.load('/src/terminal/terminal.html', function (el) {
+      el.querySelector('.cursor').innerHTML = data;
 
-            if (done) {
-                done(el);
-            }
-        });
-    }
+      if (done) {
+        done(el);
+      }
+    });
+  }
 
-    return {
-        render: render
-    };
+  return {
+    render: render
+  };
 
 }(templates));

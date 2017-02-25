@@ -2,37 +2,37 @@
 
 vanilla.list = (function (templates, listItem) {
 
-    function render(props, done) {
-      
-        templates.load('/src/list/list.html', function (el) {
-            var data = props.data.slice();
+  function render(props, done) {
 
-            function addListItem() {
-                var childProps = {
-                    data: data.shift(),
-                    onClick: props.onClick
-                };
+    templates.load('/src/list/list.html', function (el) {
+      var data = props.data.slice();
 
-                listItem.render(childProps, function (child) {
-                    el.querySelector('ul').appendChild(child);
-                    next();
-                });
-            }
+      function addListItem() {
+        var childProps = {
+          data: data.shift(),
+          onClick: props.onClick
+        };
 
-            function next() {
-                if (data.length === 0) {
-                    done(el);
-                } else {
-                    addListItem();
-                }
-            }
-
-            next();
+        listItem.render(childProps, function (child) {
+          el.querySelector('ul').appendChild(child);
+          next();
         });
-    }
+      }
 
-    return {
-        render: render
-    };
+      function next() {
+        if (data.length === 0) {
+          done(el);
+        } else {
+          addListItem();
+        }
+      }
+
+      next();
+    });
+  }
+
+  return {
+    render: render
+  };
 
 }(templates, vanilla.listItem));
