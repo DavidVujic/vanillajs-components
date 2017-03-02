@@ -1,14 +1,14 @@
 define(['templates'], function (templates) {
 
-    function render(data, done) {
-        templates.load('/src/terminal/terminal.html', data, function (el) {
-            if (done) {
-                done(el);
-            }
-        });
-    }
+  function render(data, done) {
+    templates.load('/src/terminal/terminal.html', data, function (el) {
+      if (done) {
+        done(el);
+      }
+    });
+  }
 
-    return {
-        render: render
-    };
+  return {
+    render: render
+  };
 });

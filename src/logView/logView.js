@@ -1,19 +1,19 @@
 define(['templates', 'terminal/terminal'], function (templates, terminal) {
 
-    function render(data, done) {
-        templates.load('/src/logView/logView.html', null, function (el) {
+  function render(data, done) {
+    templates.load('/src/logView/logView.html', null, function (el) {
 
-            terminal.render(data, function (child) {
-                el.appendChild(child);
+      terminal.render(data, function (child) {
+        el.appendChild(child);
 
-                if (done) {
-                    done(el);
-                }
-            });
-        });
-    }
+        if (done) {
+          done(el);
+        }
+      });
+    });
+  }
 
-    return {
-        render: render
-    };
+  return {
+    render: render
+  };
 });
