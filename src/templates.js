@@ -53,6 +53,7 @@ var templates = (function () {
       callback(getSavedTemplate(path));
     });
   }
+
   return {
     load: loadTemplate
   };
