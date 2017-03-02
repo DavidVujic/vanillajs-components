@@ -3,7 +3,6 @@
 vanilla.list = (function (templates, listItem) {
 
   function render(props, done) {
-
     templates.load('/src/list/list.html', null, function (el) {
       var data = props.data.slice();
 

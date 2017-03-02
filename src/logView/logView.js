@@ -3,7 +3,6 @@
 vanilla.logView = (function (templates, terminal) {
 
   function render(data, done) {
-
     templates.load('/src/logView/logView.html', null, function (el) {
 
       terminal.render(data, function (child) {
@@ -14,7 +13,6 @@ vanilla.logView = (function (templates, terminal) {
         }
       });
     });
-
   }
 
   return {

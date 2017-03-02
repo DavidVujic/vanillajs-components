@@ -57,7 +57,6 @@
 
   function print(e) {
     var message = e.type + ' : ' + e.target.nodeName + ' : ' + e.target.innerHTML;
-
     printTargets.forEach(function (element) {
       element.innerHTML += '<br/>' + message;
     });
