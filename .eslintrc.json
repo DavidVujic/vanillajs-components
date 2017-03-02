@@ -1,17 +1,17 @@
 {
-    "rules": {
-        "eqeqeq": 2,
-        "no-console": 0,
-        "quotes": [2, "single"],
-        "linebreak-style": [2, "unix"],
-        "semi": [2, "always"],
-        "no-unused-vars": 0
-    },
-    "env": {
-        "browser": true
-    },
-    "globals": {
-        "vanilla": true
-    },
-    "extends": "eslint:recommended"
+  "rules": {
+    "eqeqeq": 2,
+    "no-console": 0,
+    "quotes": [2, "single"],
+    "linebreak-style": [2, "unix"],
+    "semi": [2, "always"],
+    "no-unused-vars": 0
+  },
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "vanilla": true
+  },
+  "extends": "eslint:recommended"
 }
