@@ -1,6 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-
 import Nav from 'nav/nav';
 import Terminal from 'terminal/terminal';
 import LogView from 'logView/logView';
