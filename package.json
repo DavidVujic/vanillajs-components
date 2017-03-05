@@ -12,7 +12,7 @@
     "transpile": "babel src --out-dir lib --source-maps",
     "lint": "eslint src",
     "build": "npm run lint && npm run transpile && npm run deps",
-    "start": "npm run build && live-server"
+    "start": "npm run build && live-server --watch=lib"
   },
   "repository": {
     "type": "git",
