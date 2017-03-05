@@ -1,16 +1,14 @@
 import load from 'templates';
-import * as terminal from 'terminal/terminal';
+import { default as renderTerminal } from 'terminal/terminal';
 
-export function render(data, done) {
-  load('/src/logView/logView.html', null, (el) => {
+async function render(data) {
+  const el = await load('/src/logView/logView.html');
 
-    terminal.render(data, (child) => {
-      el.appendChild(child);
+  const child = await renderTerminal(data);
 
-      if (done) {
-        done(el);
-      }
-    });
-  });
+  el.appendChild(child);
+
+  return el;
 }
 
+export default render;

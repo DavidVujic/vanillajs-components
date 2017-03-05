@@ -1,9 +1,7 @@
 import load from 'templates';
 
-export function render(data, done) {
-  load('/src/terminal/terminal.html', data, (el) => {
-    if (done) {
-      done(el);
-    }
-  });
+async function render(data) {
+  return await load('/src/terminal/terminal.html', data);
 }
+
+export default render;

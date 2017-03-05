@@ -1,12 +1,11 @@
 import load from 'templates';
 
-export function render(props, done) {
+async function render(props) {
+  const el = await load('/src/listItem/listItem.html', props);
 
-  load('/src/listItem/listItem.html', props, (el) => {
-    el.addEventListener('click', props.onClick);
-    if (done) {
-      done(el);
-    }
-  });
+  el.addEventListener('click', props.onClick);
+
+  return el;
 }
 
+export default render;
