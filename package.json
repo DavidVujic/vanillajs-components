@@ -8,7 +8,7 @@
     "deps:mustache": "npm run deps:lib && cp node_modules/mustache/mustache.min.js lib/vendor/mustache.min.js",
     "lint": "eslint src",
     "build": "npm run lint && npm run deps:mustache",
-    "start": "npm run build && live-server"
+    "start": "npm run build && live-server --watch=src"
   },
   "repository": {
     "type": "git",
