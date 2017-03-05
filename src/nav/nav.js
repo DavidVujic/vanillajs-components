@@ -1,11 +1,13 @@
 import load from 'templates';
-import * as list from 'list/list';
+import { default as renderList } from 'list/list';
 
-export async function render(props) {
+async function render(props) {
   const el = await load('/src/nav/nav.html');
 
-  const child = await list.render(props);
+  const child = await renderList(props);
   el.appendChild(child);
   return el;
 }
+
+export default render;
 

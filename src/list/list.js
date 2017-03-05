@@ -1,5 +1,5 @@
 import load from 'templates';
-import * as listItem from 'listItem/listItem';
+import { default as renderListItem } from 'listItem/listItem';
 
 async function addListItem(data, ev) {
   const childProps = {
@@ -7,10 +7,10 @@ async function addListItem(data, ev) {
     onClick: ev
   };
 
-  return await listItem.render(childProps);
+  return await renderListItem(childProps);
 }
 
-export async function render(props) {
+async function render(props) {
   const el = await load('/src/list/list.html');
 
   for (let item of props.data) {
@@ -20,3 +20,5 @@ export async function render(props) {
 
   return el;
 }
+
+export default render;

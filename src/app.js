@@ -1,6 +1,6 @@
-import * as navigation from 'nav/nav';
-import * as logView from 'logView/logView';
-import * as terminal from 'terminal/terminal';
+import { default as renderNavigation } from 'nav/nav';
+import { default as renderLogView } from 'logView/logView';
+import { default as renderTerminal } from 'terminal/terminal';
 
 var printTargets = [];
 
@@ -21,7 +21,7 @@ async function loadLeftMenu() {
     }
   };
 
-  const el = await navigation.render(props);
+  const el = await renderNavigation(props);
   document.querySelector('#left-menu').appendChild(el);
 }
 
@@ -36,7 +36,7 @@ async function loadMainView(e) {
     data.text = e.target.textContent;
   }
 
-  const el = await terminal.render(data);
+  const el = await renderTerminal(data);
   container.appendChild(el);
 }
 
@@ -45,7 +45,7 @@ async function loadLogView() {
     text: 'events:'
   };
 
-  const el = await logView.render(data);
+  const el = await renderLogView(data);
   printTargets.push(el.querySelector('.cursor'));
   document.querySelector('#vanilla-terminal').appendChild(el);
 }
