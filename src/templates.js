@@ -6,26 +6,28 @@ function getAbsolutePath() {
   return `${window.location.protocol}//${window.location.host}${window.location.pathname}`;
 }
 
-function httpGet(path, onSuccess, onError) {
-  const request = new XMLHttpRequest();
-  const url = getAbsolutePath() + path;
+function httpGet(path) {
+  return new Promise((resolve, reject) => {
+    const request = new XMLHttpRequest();
+    const url = getAbsolutePath() + path;
 
-  request.open('GET', url, true);
+    request.open('GET', url, true);
 
-  request.onload = function () {
-    // keep function keyword, because of 'this'
-    if (this.status >= 200 && this.status < 400) {
-      onSuccess(this.response);
-    } else {
-      onError('We reached our target server, but it returned an error');
-    }
-  };
+    request.onload = function () {
+      // keep function keyword, because of 'this'
+      if (this.status >= 200 && this.status < 400) {
+        resolve(this.response);
+      } else {
+        reject('We reached our target server, but it returned an error');
+      }
+    };
 
-  request.onerror = () => {
-    onError('There was a connection error of some sort');
-  };
+    request.onerror = () => {
+      reject('There was a connection error of some sort');
+    };
 
-  request.send();
+    request.send();
+  });
 }
 
 function saveTemplate(path, template) {
@@ -42,18 +44,18 @@ function toNode(template, data) {
   return container.children[0];
 }
 
-function load(path, data, callback) {
+function load(path, data) {
 
   if (savedTemplates.hasOwnProperty(path)) {
-    callback(getSavedTemplate(path, data));
-
-    return;
+    return Promise.resolve(getSavedTemplate(path, data));
   }
 
-  httpGet(path, function (template) {
-    saveTemplate(path, template);
-    callback(getSavedTemplate(path, data));
-  });
+  return httpGet(path)
+    .then((template) => {
+      saveTemplate(path, template);
+      return getSavedTemplate(path, data);
+    })
+    .catch((error) => console.error(error));
 }
 
 export default load;
