@@ -1,30 +1,22 @@
 import load from 'templates';
 import * as listItem from 'listItem/listItem';
 
-export function render(props, done) {
-  load('/src/list/list.html', null, (el) => {
-    var data = props.data.slice();
+async function addListItem(data, ev) {
+  const childProps = {
+    data: data,
+    onClick: ev
+  };
 
-    function addListItem() {
-      var childProps = {
-        data: data.shift(),
-        onClick: props.onClick
-      };
+  return await listItem.render(childProps);
+}
 
-      listItem.render(childProps, (child) => {
-        el.querySelector('ul').appendChild(child);
-        next();
-      });
-    }
+export async function render(props) {
+  const el = await load('/src/list/list.html');
 
-    function next() {
-      if (data.length === 0) {
-        done(el);
-      } else {
-        addListItem();
-      }
-    }
+  for (let item of props.data) {
+    const child = await addListItem(item, props.onClick);
+    el.querySelector('ul').appendChild(child);
+  }
 
-    next();
-  });
+  return el;
 }

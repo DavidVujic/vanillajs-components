@@ -4,11 +4,7 @@ import * as terminal from 'terminal/terminal';
 
 var printTargets = [];
 
-loadLeftMenu();
-loadMainView();
-loadLogView();
-
-function loadLeftMenu() {
+async function loadLeftMenu() {
   const props = {
     data: [
       'You',
@@ -25,12 +21,11 @@ function loadLeftMenu() {
     }
   };
 
-  navigation.render(props, (el) => {
-    document.querySelector('#left-menu').appendChild(el);
-  });
+  const el = await navigation.render(props);
+  document.querySelector('#left-menu').appendChild(el);
 }
 
-function loadMainView(e) {
+async function loadMainView(e) {
   const container = document.querySelector('#main');
   const data = {
     text: 'vanilla components'
@@ -41,18 +36,18 @@ function loadMainView(e) {
     data.text = e.target.textContent;
   }
 
-  terminal.render(data, (el) => container.appendChild(el));
+  const el = await terminal.render(data);
+  container.appendChild(el);
 }
 
-function loadLogView() {
+async function loadLogView() {
   const data = {
     text: 'events:'
   };
 
-  logView.render(data, (el) => {
-    printTargets.push(el.querySelector('.cursor'));
-    document.querySelector('#vanilla-terminal').appendChild(el);
-  });
+  const el = await logView.render(data);
+  printTargets.push(el.querySelector('.cursor'));
+  document.querySelector('#vanilla-terminal').appendChild(el);
 }
 
 function print(e) {
@@ -62,3 +57,7 @@ function print(e) {
     element.innerHTML += '<br/>' + message;
   });
 }
+
+loadLeftMenu()
+  .then(loadMainView)
+  .then(loadLogView);

@@ -1,12 +1,9 @@
 import load from 'templates';
 
-export function render(props, done) {
+export async function render(props) {
+  const el = await load('/src/listItem/listItem.html', props);
 
-  load('/src/listItem/listItem.html', props, (el) => {
-    el.addEventListener('click', props.onClick);
-    if (done) {
-      done(el);
-    }
-  });
+  el.addEventListener('click', props.onClick);
+
+  return el;
 }
-

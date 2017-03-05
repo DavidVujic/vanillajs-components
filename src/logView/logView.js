@@ -1,16 +1,12 @@
 import load from 'templates';
 import * as terminal from 'terminal/terminal';
 
-export function render(data, done) {
-  load('/src/logView/logView.html', null, (el) => {
+export async function render(data) {
+  const el = await load('/src/logView/logView.html');
 
-    terminal.render(data, (child) => {
-      el.appendChild(child);
+  const child = await terminal.render(data);
 
-      if (done) {
-        done(el);
-      }
-    });
-  });
+  el.appendChild(child);
+
+  return el;
 }
-

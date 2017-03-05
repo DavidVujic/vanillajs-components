@@ -1,17 +1,11 @@
 import load from 'templates';
 import * as list from 'list/list';
 
-export function render(props, done) {
-  load('/src/nav/nav.html', null, (el) => {
+export async function render(props) {
+  const el = await load('/src/nav/nav.html');
 
-    list.render(props, (child) => {
-      el.appendChild(child);
-
-      if (done) {
-        done(el);
-      }
-    });
-
-  });
+  const child = await list.render(props);
+  el.appendChild(child);
+  return el;
 }
 
