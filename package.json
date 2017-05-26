@@ -28,7 +28,7 @@
     "babel-cli": "^6.18.0",
     "babel-plugin-transform-es2015-modules-amd": "^6.18.0",
     "babel-preset-latest": "^6.16.0",
-    "eslint": "^3.16.1",
+    "eslint": "^3.19.0",
     "live-server": "^1.2.0"
   },
   "dependencies": {
