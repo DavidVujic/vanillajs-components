@@ -3,8 +3,8 @@ import Terminal from 'terminal/terminal';
 
 function LogView(props) {
   return <figure className='logView' title='The logView component'>
-    {props.logs.map((text) => {
-      return <Terminal text={text}/>;
+    {props.logs.map((text, index) => {
+      return <Terminal key={index} text={text}/>;
     })}
   </figure>;
 }

@@ -1,3 +1,48 @@
+/*global process, __dirname */
+const path = require('path');
+const webpack = require('webpack');
+const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
+
+const isProduction = process.env.NODE_ENV === 'production';
+
+const config = {
+  entry: './src/main.js',
+  resolve: {
+    modules: [
+      path.resolve('./src'),
+      path.resolve('./node_modules')
+    ]
+  },
+  output: {
+    path: path.resolve(__dirname, './lib'),
+    filename: 'app.bundle.js'
+  },
+  devServer: {
+    contentBase: path.resolve(__dirname, './'),
+  },
+  devtool: isProduction ? '' : 'source-map',
+  module: {
+    rules: [{
+      test: /\.(js)$/,
+      exclude: /node_modules/,
+      use: [{
+        loader: 'babel-loader'
+      }]
+    }]
+  }
+};
+
+module.exports = config;
+
+
+
+
+
+
+
+
+/*
+
 var webpack = require('webpack');
 var path = require('path');
 var UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
@@ -5,21 +50,22 @@ var UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 module.exports = {
   entry: './src/main.js',
   output: {
-    path: './lib',
+    path: path.resolve(__dirname, 'lib'),
     filename: 'app.bundle.js',
     publicPath: '/lib/'
   },
   resolve: {
-    root: [path.resolve('./src')]
+    modules: [
+      path.join(__dirname, 'src'),
+      'node_modules'
+    ]
   },
   module: {
-    loaders: [
-      {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel-loader'
-      }
-    ]
+    rules: [{
+      exclude: /node_modules/,
+      test: /\.js$/,
+      loader: 'babel-loader'
+    }]
   },
   devtool: 'source-map',
   devServer: {
@@ -32,9 +78,8 @@ module.exports = {
       }
     }),
     new UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
+      sourceMap: true
     })
   ]
 };
+*/

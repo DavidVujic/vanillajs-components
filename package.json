@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint src",
-    "build": "npm run lint && webpack",
+    "build": "npm run lint && webpack -p",
     "start": "webpack-dev-server"
   },
   "repository": {
@@ -19,19 +19,19 @@
   },
   "homepage": "https://github.com/DavidVujic/vanillajs-components#readme",
   "devDependencies": {
-    "babel-cli": "*",
-    "babel-core": "*",
-    "babel-loader": "*",
-    "babel-plugin-transform-es2015-modules-amd": "*",
-    "babel-preset-latest": "*",
-    "babel-preset-react": "*",
-    "eslint": "*",
-    "eslint-plugin-react": "*",
-    "webpack": "*",
-    "webpack-dev-server": "*"
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-transform-es2015-modules-amd": "^6.24.1",
+    "babel-preset-latest": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "eslint": "^3.19.0",
+    "eslint-plugin-react": "^7.0.1",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
-    "react": "*",
-    "react-dom": "*"
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
   }
 }
