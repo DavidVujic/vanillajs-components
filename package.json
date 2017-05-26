@@ -19,19 +19,19 @@
   },
   "homepage": "https://github.com/DavidVujic/vanillajs-components#readme",
   "devDependencies": {
-    "babel-cli": "^6.18.0",
-    "babel-core": "^6.18.2",
-    "babel-loader": "^6.2.8",
-    "babel-plugin-transform-es2015-modules-amd": "^6.18.0",
-    "babel-preset-latest": "^6.16.0",
-    "babel-preset-react": "^6.16.0",
-    "eslint": "^3.16.1",
-    "eslint-plugin-react": "^6.7.1",
-    "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2"
+    "babel-cli": "*",
+    "babel-core": "*",
+    "babel-loader": "*",
+    "babel-plugin-transform-es2015-modules-amd": "*",
+    "babel-preset-latest": "*",
+    "babel-preset-react": "*",
+    "eslint": "*",
+    "eslint-plugin-react": "*",
+    "webpack": "*",
+    "webpack-dev-server": "*"
   },
   "dependencies": {
-    "react": "^15.4.1",
-    "react-dom": "^15.4.1"
+    "react": "*",
+    "react-dom": "*"
   }
 }
