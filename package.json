@@ -20,13 +20,13 @@
   "homepage": "https://github.com/DavidVujic/vanillajs-components#readme",
   "devDependencies": {
     "babel-cli": "^6.24.1",
-    "babel-core": "^6.18.2",
-    "babel-loader": "^6.2.8",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
     "babel-plugin-transform-es2015-modules-amd": "^6.24.1",
-    "babel-preset-latest": "^6.16.0",
+    "babel-preset-latest": "^6.24.1",
     "eslint": "^3.19.0",
-    "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2"
+    "webpack": "^1.15.0",
+    "webpack-dev-server": "^1.16.5"
   },
   "dependencies": {
     "mustache": "^2.3.0"
