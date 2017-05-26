@@ -1,7 +1,6 @@
 /*global process, __dirname */
 const path = require('path');
 const webpack = require('webpack');
-const UglifyJsPlugin = require('webpack/lib/optimize/UglifyJsPlugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
