@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/DavidVujic/vanillajs-components#readme",
   "devDependencies": {
-    "eslint": "^3.16.1",
+    "eslint": "^3.19.0",
     "live-server": "^1.2.0"
   }
 }
