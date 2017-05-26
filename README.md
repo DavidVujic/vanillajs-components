@@ -7,6 +7,11 @@ I want to understand the problems that are solved using React, ES 201x, Webpack 
 
 The source code in the main branch of this repo is written with __Old School vanilla JavaScript__, without any frameworks, without a build system and without a transpiler.
 
+
+### Blog post ###
+There is also a blog post related to this repo: http://davidvujic.blogspot.se/2017/01/you-might-not-need-a-javascript-library.html
+
+
 ## Examples ##
 The listItem.js component
 ````javascript
