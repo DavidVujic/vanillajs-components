@@ -1,6 +1,6 @@
-import { default as renderNavigation } from 'nav/nav';
-import { default as renderLogView } from 'logView/logView';
-import { default as renderTerminal } from 'terminal/terminal';
+import {default as renderNavigation} from 'nav/nav';
+import {default as renderLogView} from 'logView/logView';
+import {default as renderTerminal} from 'terminal/terminal';
 
 var printTargets = [];
 
@@ -15,7 +15,7 @@ async function loadLeftMenu() {
       'JavaScript',
       'framework'
     ],
-    onClick: function (e) {
+    onClick: function(e) {
       print(e);
       loadMainView(e);
     }
@@ -51,13 +51,11 @@ async function loadLogView() {
 }
 
 function print(e) {
-  var message = e.type + ' : ' + e.target.nodeName + ' : ' + e.target.innerHTML;
+  var message = `${e.type} : ${e.target.nodeName} : ${e.target.innerHTML}`;
 
-  printTargets.forEach(function (element) {
-    element.innerHTML += '<br/>' + message;
+  printTargets.forEach(function(element) {
+    element.innerHTML += `<br/>${message}`;
   });
 }
 
-loadLeftMenu()
-  .then(loadMainView)
-  .then(loadLogView);
+loadLeftMenu().then(loadMainView).then(loadLogView);
