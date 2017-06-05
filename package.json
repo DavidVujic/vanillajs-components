@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "live-server --watch=src",
+    "start": "live-server --watch=src --no-browser",
     "lint": "eslint src"
   },
   "repository": {
