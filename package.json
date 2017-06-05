@@ -23,7 +23,7 @@
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
     "babel-plugin-transform-es2015-modules-amd": "^6.24.1",
-    "babel-preset-latest": "^6.24.1",
+    "babel-preset-env": "^1.5.1",
     "eslint": "^3.19.0",
     "webpack": "^2.6.1",
     "webpack-dev-server": "^2.4.5"
