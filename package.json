@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "live-server --watch=src --no-browser",
+    "start": "python -m SimpleHTTPServer 8080",
     "lint": "eslint src"
   },
   "repository": {
@@ -18,7 +18,6 @@
   },
   "homepage": "https://github.com/DavidVujic/vanillajs-components#readme",
   "devDependencies": {
-    "eslint": "^3.19.0",
-    "live-server": "^1.2.0"
+    "eslint": "^3.19.0"
   }
 }
