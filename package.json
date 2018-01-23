@@ -18,6 +18,6 @@
   },
   "homepage": "https://github.com/DavidVujic/vanillajs-components#readme",
   "devDependencies": {
-    "eslint": "^4.11.0"
+    "eslint": "^4.16.0"
   }
 }
