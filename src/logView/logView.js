@@ -1,5 +1,5 @@
-import load from 'templates';
-import { default as renderTerminal } from 'terminal/terminal';
+import load from '../templates';
+import renderTerminal from '../terminal/terminal';
 
 async function render(data) {
   const el = await load('/src/logView/logView.html');

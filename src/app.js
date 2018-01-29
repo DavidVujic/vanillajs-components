@@ -1,34 +1,22 @@
-import {default as renderNavigation} from 'nav/nav';
-import {default as renderLogView} from 'logView/logView';
-import {default as renderTerminal} from 'terminal/terminal';
+import renderNavigation from './nav/nav';
+import renderLogView from './logView/logView';
+import renderTerminal from './terminal/terminal';
 
-var printTargets = [];
+const printTargets = [];
 
-async function loadLeftMenu() {
-  const props = {
-    data: [
-      'You',
-      'might',
-      '(not)',
-      'need',
-      'a',
-      'JavaScript',
-      'framework'
-    ],
-    onClick: function(e) {
-      print(e);
-      loadMainView(e);
-    }
-  };
+function print(e) {
+  const message = `${e.type} : ${e.target.nodeName} : ${e.target.innerHTML}`;
 
-  const el = await renderNavigation(props);
-  document.querySelector('#left-menu').appendChild(el);
+  printTargets.forEach((element) => {
+    const el = element;
+    el.innerHTML += `<br/>${message}`;
+  });
 }
 
 async function loadMainView(e) {
   const container = document.querySelector('#main');
   const data = {
-    text: 'vanilla components'
+    text: 'vanilla components',
   };
 
   if (e) {
@@ -40,22 +28,35 @@ async function loadMainView(e) {
   container.appendChild(el);
 }
 
+async function loadLeftMenu() {
+  const props = {
+    data: [
+      'You',
+      'might',
+      '(not)',
+      'need',
+      'a',
+      'JavaScript',
+      'framework',
+    ],
+    onClick: (e) => {
+      print(e);
+      loadMainView(e);
+    },
+  };
+
+  const el = await renderNavigation(props);
+  document.querySelector('#left-menu').appendChild(el);
+}
+
 async function loadLogView() {
   const data = {
-    text: 'events:'
+    text: 'events:',
   };
 
   const el = await renderLogView(data);
   printTargets.push(el.querySelector('.cursor'));
   document.querySelector('#vanilla-terminal').appendChild(el);
-}
-
-function print(e) {
-  var message = `${e.type} : ${e.target.nodeName} : ${e.target.innerHTML}`;
-
-  printTargets.forEach(function(element) {
-    element.innerHTML += `<br/>${message}`;
-  });
 }
 
 loadLeftMenu().then(loadMainView).then(loadLogView);
