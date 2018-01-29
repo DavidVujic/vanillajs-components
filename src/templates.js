@@ -13,17 +13,17 @@ function httpGet(path) {
 
     request.open('GET', url, true);
 
-    request.onload = function () {
+    request.onload = function onload() {
       // keep function keyword, because of 'this'
       if (this.status >= 200 && this.status < 400) {
         resolve(this.response);
       } else {
-        reject('We reached our target server, but it returned an error');
+        reject(new Error('We reached our target server, but it returned an error'));
       }
     };
 
     request.onerror = () => {
-      reject('There was a connection error of some sort');
+      reject(new Error('There was a connection error of some sort'));
     };
 
     request.send();
@@ -34,19 +34,22 @@ function saveTemplate(path, template) {
   savedTemplates[path] = template;
 }
 
-function getSavedTemplate(key, data) {
-  return toNode(savedTemplates[key], data);
-}
-
 function toNode(template, data) {
   const container = document.createElement('div');
   container.innerHTML = engine.render(template, data);
   return container.children[0];
 }
 
-function load(path, data) {
+function getSavedTemplate(key, data) {
+  return toNode(savedTemplates[key], data);
+}
 
-  if (savedTemplates.hasOwnProperty(path)) {
+function hasOwnProp(target, propName) {
+  return Object.prototype.hasOwnProperty.call(target, propName);
+}
+
+function load(path, data) {
+  if (hasOwnProp(savedTemplates, path)) {
     return Promise.resolve(getSavedTemplate(path, data));
   }
 
@@ -55,7 +58,8 @@ function load(path, data) {
       saveTemplate(path, template);
       return getSavedTemplate(path, data);
     })
-    .catch((error) => console.error(error));
+    // eslint-disable-next-line no-console
+    .catch(error => console.error(error));
 }
 
 export default load;

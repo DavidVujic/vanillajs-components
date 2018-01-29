@@ -1,4 +1,4 @@
-import load from 'templates';
+import load from '../templates';
 
 async function render(props) {
   const el = await load('/src/listItem/listItem.html', props);

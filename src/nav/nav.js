@@ -1,5 +1,5 @@
-import load from 'templates';
-import { default as renderList } from 'list/list';
+import load from '../templates';
+import renderList from '../list/list';
 
 async function render(props) {
   const el = await load('/src/nav/nav.html');
