@@ -1,7 +1,7 @@
 import React from 'react';
-import Nav from 'nav/nav';
-import Terminal from 'terminal/terminal';
-import LogView from 'logView/logView';
+import Nav from './nav/nav';
+import Terminal from './terminal/terminal';
+import LogView from './logView/logView';
 
 class App extends React.Component {
   constructor(props) {
@@ -15,10 +15,10 @@ class App extends React.Component {
         'need',
         'a',
         'JavaScript',
-        'framework'
+        'framework',
       ],
       logMessages: ['events:'],
-      mainText: 'vanilla components'
+      mainText: 'vanilla components',
     });
 
     this.onClick = this.onClick.bind(this);
@@ -28,21 +28,23 @@ class App extends React.Component {
     const messages = this.state.logMessages.slice();
     messages.push(`${e.type} : ${e.target.nodeName} : ${e.target.innerHTML}`);
 
-    this.setState({mainText: e.target.textContent, logMessages: messages});
+    this.setState({ mainText: e.target.textContent, logMessages: messages });
   }
 
   render() {
-    return <section>
-      <section id="left-menu">
-        <Nav data={this.state.navData} onClick={this.onClick}/>
+    return (
+      <section>
+        <section id="left-menu">
+          <Nav data={this.state.navData} onClick={this.onClick} />
+        </section>
+        <section id="main">
+          <Terminal text={this.state.mainText} />
+        </section>
+        <section id="vanilla-terminal">
+          <LogView logs={this.state.logMessages} />
+        </section>
       </section>
-      <section id="main">
-        <Terminal text={this.state.mainText}/>
-      </section>
-      <section id="vanilla-terminal">
-        <LogView logs={this.state.logMessages}/>
-      </section>
-    </section>;
+    );
   }
 }
 

@@ -1,12 +1,18 @@
 import React from 'react';
-import Terminal from 'terminal/terminal';
+import Terminal from '../terminal/terminal';
+
+function createKey(index) {
+  return `logviewitem_${index}`;
+}
 
 function LogView(props) {
-  return <figure className='logView' title='The logView component'>
-    {props.logs.map((text, index) => {
-      return <Terminal key={index} text={text}/>;
-    })}
-  </figure>;
+  return (
+    <figure className="logView" title="The logView component">
+      {
+        props.logs.map((text, index) => <Terminal key={createKey(index)} text={text} />)
+      }
+    </figure>
+  );
 }
 
 export default LogView;
