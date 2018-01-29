@@ -31,6 +31,7 @@
     "eslint": "^4.16.0"
   },
   "dependencies": {
+    "babel-polyfill": "^6.26.0",
     "mustache": "^2.3.0",
     "requirejs": "^2.3.5"
   }

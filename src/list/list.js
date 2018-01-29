@@ -1,5 +1,5 @@
-import load from 'templates';
-import { default as renderListItem } from 'listItem/listItem';
+import load from '../templates';
+import renderListItem from '../listItem/listItem';
 
 async function addListItem(data, ev) {
   const childProps = {

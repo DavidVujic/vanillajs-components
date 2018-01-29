@@ -1,8 +1,8 @@
-import {default as renderNavigation} from 'nav/nav';
-import {default as renderLogView} from 'logView/logView';
-import {default as renderTerminal} from 'terminal/terminal';
+import renderNavigation from 'nav/nav';
+import renderLogView from 'logView/logView';
+import renderTerminal from 'terminal/terminal';
 
-var printTargets = [];
+const printTargets = [];
 
 async function loadLeftMenu() {
   const props = {
@@ -51,7 +51,7 @@ async function loadLogView() {
 }
 
 function print(e) {
-  var message = `${e.type} : ${e.target.nodeName} : ${e.target.innerHTML}`;
+  const message = `${e.type} : ${e.target.nodeName} : ${e.target.innerHTML}`;
 
   printTargets.forEach(function(element) {
     element.innerHTML += `<br/>${message}`;
