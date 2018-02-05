@@ -1,4 +1,4 @@
-/* global process __dirname */
+/* global process, __dirname */
 const path = require('path');
 require('webpack');
 
