@@ -10,11 +10,20 @@ async function addListItem(data, ev) {
   return renderListItem(childProps);
 }
 
+async function renderFirstChild(el, data, ev) {
+  const firstChild = await addListItem(data, ev);
+  el.querySelector('ul').appendChild(firstChild);
+}
+
 async function render(props) {
   const el = await load('/src/list/list.html');
+  const data = props.data.slice();
+
+  await renderFirstChild(el, data.shift(), props.onClick);
+
   const results = [];
-  for (let i = 0; i < props.data.length; i += 1) {
-    const item = props.data[i];
+  for (let i = 0; i < data.length; i += 1) {
+    const item = data[i];
     results.push(addListItem(item, props.onClick));
   }
 
