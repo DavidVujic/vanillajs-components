@@ -1,6 +1,6 @@
-/*global process, __dirname */
+/* global process, __dirname */
 const path = require('path');
-const webpack = require('webpack');
+require('webpack');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -9,12 +9,12 @@ const config = {
   resolve: {
     modules: [
       path.resolve('./src'),
-      path.resolve('./node_modules')
-    ]
+      path.resolve('./node_modules'),
+    ],
   },
   output: {
     path: path.resolve(__dirname, './lib'),
-    filename: 'app.bundle.js'
+    filename: 'app.bundle.js',
   },
   devServer: {
     contentBase: path.resolve(__dirname, './'),
@@ -25,10 +25,10 @@ const config = {
       test: /\.(js)$/,
       exclude: /node_modules/,
       use: [{
-        loader: 'babel-loader'
-      }]
-    }]
-  }
+        loader: 'babel-loader',
+      }],
+    }],
+  },
 };
 
 module.exports = config;
