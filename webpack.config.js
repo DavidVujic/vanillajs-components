@@ -9,15 +9,15 @@ const config = {
   resolve: {
     modules: [
       path.resolve('./src'),
-      path.resolve('./node_modules'),
-    ],
+      path.resolve('./node_modules')
+    ]
   },
   output: {
     path: path.resolve(__dirname, './lib'),
-    filename: 'app.bundle.js',
+    filename: 'app.bundle.js'
   },
   devServer: {
-    contentBase: path.resolve(__dirname, './'),
+    contentBase: path.resolve(__dirname, './')
   },
   devtool: isProduction ? '' : 'source-map',
   module: {
@@ -25,10 +25,10 @@ const config = {
       test: /\.(js)$/,
       exclude: /node_modules/,
       use: [{
-        loader: 'babel-loader',
-      }],
-    }],
-  },
+        loader: 'babel-loader'
+      }]
+    }]
+  }
 };
 
 module.exports = config;
