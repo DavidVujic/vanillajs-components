@@ -21,9 +21,9 @@
   },
   "homepage": "https://github.com/DavidVujic/vanillajs-components#readme",
   "devDependencies": {
-    "eslint": "7.*"
+    "eslint": "7.x"
   },
   "dependencies": {
-    "mustache": "4.*"
+    "mustache": "4.x"
   }
 }
