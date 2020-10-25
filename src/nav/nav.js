@@ -10,4 +10,3 @@ async function render(props) {
 }
 
 export default render;
-

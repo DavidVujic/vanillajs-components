@@ -59,7 +59,7 @@ function load(path, data) {
       return getSavedTemplate(path, data);
     })
     // eslint-disable-next-line no-console
-    .catch(error => console.error(error));
+    .catch((error) => console.error(error));
 }
 
 export default load;
