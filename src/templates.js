@@ -43,7 +43,7 @@ define(['../lib/vendor/mustache.min.js'], function (Mustache) {
 
   function loadTemplate(path, data, callback) {
 
-    if (savedTemplates.hasOwnProperty(path)) {
+    if (Object.prototype.hasOwnProperty.call(savedTemplates, path)) {
       callback(getSavedTemplate(path, data));
 
       return;

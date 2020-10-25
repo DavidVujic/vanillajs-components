@@ -9,7 +9,7 @@
     "deps:mustache": "npm run deps:lib && cp node_modules/mustache/mustache.min.js lib/vendor/mustache.min.js",
     "lint": "eslint .",
     "build": "npm run lint && npm run deps:requirejs && npm run deps:mustache",
-    "start": "npm run build && python -m SimpleHTTPServer 8080"
+    "start": "npm run build && python3 -m http.server"
   },
   "repository": {
     "type": "git",
@@ -22,10 +22,10 @@
   },
   "homepage": "https://github.com/DavidVujic/vanillajs-components#readme",
   "devDependencies": {
-    "eslint": "^4.16.0"
+    "eslint": "7.*"
   },
   "dependencies": {
-    "mustache": "^2.3.0",
+    "mustache": "4.*",
     "requirejs": "^2.3.5"
   }
 }
