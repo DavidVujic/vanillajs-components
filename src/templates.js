@@ -42,7 +42,7 @@ var templates = (function () {
 
   function loadTemplate(path, callback) {
 
-    if (savedTemplates.hasOwnProperty(path)) {
+    if (Object.prototype.hasOwnProperty.call(savedTemplates, path)) {
       callback(getSavedTemplate(path));
 
       return;
