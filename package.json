@@ -13,7 +13,7 @@
     "transpile": "babel src --out-dir lib --source-maps",
     "lint": "eslint src",
     "build": "npm run deps && npm run lint && npm run transpile && npm run bundle",
-    "start": "npm run build && python -m SimpleHTTPServer 8080"
+    "start": "npm run build && python3 -m http.server"
   },
   "repository": {
     "type": "git",
@@ -29,13 +29,13 @@
     "babel-cli": "^6.26.0",
     "babel-plugin-transform-es2015-modules-amd": "^6.24.1",
     "babel-preset-env": "^1.6.1",
-    "eslint": "^4.16.0",
-    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint": "7.x",
+    "eslint-config-airbnb-base": "14.x",
     "eslint-plugin-import": "^2.8.0"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
-    "mustache": "^2.3.0",
+    "mustache": "4.x",
     "requirejs": "^2.3.5"
   }
 }
